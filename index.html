@@ -7,9 +7,9 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --navy:#0F1923;--card:#1A2535;--card2:#141D28;--light:#243044;
-  --amber:#F5A623;--text:#F0EDE8;--muted:#9DAFC4;--sub:#6B7F96;
-  --border:#2A3A50;--green:#3ECFA0;--red:#E05A5A;--blue:#4A9EE0;
+  --navy:#F2F5F8;--card:#FFFFFF;--card2:#ECF2F7;--light:#E2EAF2;
+  --amber:#4A7FA5;--text:#1E2A3A;--muted:#506070;--sub:#92A8BC;
+  --border:#C8D6E3;--green:#16A34A;--red:#DC2626;--blue:#5B9EC9;
   --sidebar-w:220px;
 }
 *{box-sizing:border-box;margin:0;padding:0;}
@@ -17,10 +17,10 @@ html{scroll-behavior:smooth;}
 body{background:var(--navy);color:var(--text);font-family:'Inter','Hiragino Kaku Gothic ProN','Noto Sans JP',sans-serif;font-size:15px;line-height:1.8;-webkit-font-smoothing:antialiased;}
 
 /* TAB BAR */
-.tabbar{position:sticky;top:0;z-index:300;background:rgba(15,25,35,.97);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);display:flex;align-items:stretch;height:52px;}
-.tab-btn{flex:1;max-width:280px;border:none;background:none;color:var(--sub);font-size:13px;font-weight:700;letter-spacing:.08em;cursor:pointer;border-bottom:3px solid transparent;transition:all .2s;padding:0 20px;}
-.tab-btn.active{color:var(--amber);border-bottom-color:var(--amber);}
-.tab-btn:hover:not(.active){color:var(--muted);}
+.tabbar{position:sticky;top:0;z-index:300;background:#1E2D3D;border-bottom:1px solid #2E4055;display:flex;align-items:stretch;height:52px;box-shadow:0 2px 8px rgba(0,0,0,.15);}
+.tab-btn{flex:1;max-width:280px;border:none;background:none;color:#7FA8C4;font-size:13px;font-weight:700;letter-spacing:.08em;cursor:pointer;border-bottom:3px solid transparent;transition:all .2s;padding:0 20px;}
+.tab-btn.active{color:#7EC8E3;border-bottom-color:#7EC8E3;}
+.tab-btn:hover:not(.active){color:#A8C8DC;}
 
 /* TAB PANELS */
 .tab-panel{display:none;}
@@ -34,61 +34,63 @@ body{background:var(--navy);color:var(--text);font-family:'Inter','Hiragino Kaku
   width:var(--sidebar-w);flex-shrink:0;
   position:sticky;top:52px;
   max-height:calc(100vh - 52px);overflow-y:auto;
-  background:var(--card2);border-right:1px solid var(--border);
+  background:#1E2D3D;border-right:1px solid #2E4055;box-shadow:2px 0 8px rgba(0,0,0,.12);
   padding:20px 0 40px;
-  scrollbar-width:thin;scrollbar-color:var(--border) transparent;
+  scrollbar-width:thin;scrollbar-color:#2E4055 transparent;
 }
 .sidebar::-webkit-scrollbar{width:4px;}
 .sidebar::-webkit-scrollbar-track{background:transparent;}
-.sidebar::-webkit-scrollbar-thumb{background:var(--border);border-radius:2px;}
+.sidebar::-webkit-scrollbar-thumb{background:#2E4055;border-radius:2px;}
 .sidebar-group{margin-bottom:4px;}
-.sidebar-group-label{font-size:10px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--sub);padding:10px 20px 4px;display:block;}
-.sidebar a{display:block;font-size:13px;font-weight:500;color:var(--sub);text-decoration:none;padding:8px 20px 8px 22px;border-left:2px solid transparent;transition:all .15s;line-height:1.5;}
-.sidebar a:hover{color:var(--muted);background:rgba(255,255,255,.03);}
-.sidebar a.active{color:var(--amber);border-left-color:var(--amber);background:rgba(245,166,35,.06);}
+.sidebar-group-label{font-size:10px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:#4A6A82;padding:10px 20px 4px;display:block;}
+.sidebar a{display:block;font-size:13px;font-weight:500;color:#7FA8C4;text-decoration:none;padding:8px 20px 8px 22px;border-left:2px solid transparent;transition:all .15s;line-height:1.5;}
+.sidebar a:hover{color:#C8DDE8;background:rgba(255,255,255,.06);}
+.sidebar a.active{color:#7EC8E3;border-left-color:#7EC8E3;background:rgba(126,200,227,.10);}
 
 /* MAIN CONTENT */
 .main-content{min-width:0;overflow:hidden;}
 
 /* HERO */
 .hero{position:relative;min-height:72vh;display:flex;flex-direction:column;justify-content:center;padding:72px 48px 56px;overflow:hidden;}
-.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 55% 40%,#1B2F48 0%,var(--navy) 70%);}
-.hero-grid{position:absolute;inset:0;opacity:.05;background-image:linear-gradient(var(--amber) 1px,transparent 1px),linear-gradient(90deg,var(--amber) 1px,transparent 1px);background-size:48px 48px;}
+.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 55% 40%,#D8E8F2 0%,#EEF3F7 60%,var(--navy) 100%);}
+.hero-grid{position:absolute;inset:0;opacity:.06;background-image:linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px);background-size:48px 48px;}
 .hero-inner{position:relative;max-width:720px;width:100%;margin:0 auto;}
 .eyebrow{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--amber);border:1px solid var(--amber);padding:4px 12px;border-radius:2px;margin-bottom:24px;}
-.hero h1{font-size:clamp(22px,3.5vw,38px);font-weight:700;line-height:1.3;margin-bottom:18px;}
+.hero h1{font-size:clamp(28px,4vw,48px);font-weight:800;line-height:1.2;margin-bottom:20px;letter-spacing:-.02em;}
 .hero h1 em{color:var(--amber);font-style:normal;}
 .hero-lead{font-size:14px;color:var(--muted);line-height:1.9;max-width:580px;}
 .hero-lead p{margin-bottom:10px;}
 .hero-lead p:last-child{margin-bottom:0;}
 
 /* SECTION */
-.section{padding:56px 40px;border-bottom:1px solid var(--border);}
+.section{padding:72px 48px;border-bottom:1px solid var(--border);}
 .section:last-of-type{border-bottom:none;}
-.sec-label{font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--amber);margin-bottom:6px;}
-.sec-title{font-size:clamp(18px,2.5vw,23px);font-weight:700;line-height:1.35;margin-bottom:18px;}
-.sec-sub{font-size:13px;font-weight:700;color:var(--amber);margin:28px 0 10px;border-left:3px solid var(--amber);padding-left:12px;}
-.sec-body{color:var(--muted);font-size:14px;line-height:1.9;margin-bottom:20px;}
-.sec-body p{margin-bottom:12px;}
+.sec-label{font-size:10px;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:var(--amber);margin-bottom:10px;opacity:.85;}
+.sec-title{font-size:clamp(22px,3vw,30px);font-weight:800;line-height:1.25;margin-bottom:24px;letter-spacing:-.01em;color:var(--text);}
+.sec-sub{font-size:14px;font-weight:700;color:var(--amber);margin:36px 0 12px;border-left:3px solid var(--amber);padding-left:12px;}
+.sec-body{color:var(--muted);font-size:15px;line-height:2.0;margin-bottom:24px;}
+.sec-body p{margin-bottom:16px;}
 .sec-body p:last-child{margin-bottom:0;}
-.sec-body strong{color:var(--text);}
+.sec-body strong{color:#4A7FA5;font-weight:600;}
 
 /* CARDS */
 .card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin:16px 0;}
-.card{background:var(--card);border:1px solid var(--border);border-radius:6px;padding:16px;}
+.card{background:var(--card);border:1px solid var(--border);border-radius:6px;padding:16px;box-shadow:0 1px 4px rgba(0,0,0,.06);}
 .card.hi{border-color:var(--amber);}
-.card-title{font-size:13px;font-weight:700;color:var(--amber);margin-bottom:6px;}
-.card-body{font-size:12px;color:var(--muted);line-height:1.75;}
+.card-title{font-size:14px;font-weight:700;color:var(--amber);margin-bottom:8px;}
+.card-body{font-size:13px;color:var(--muted);line-height:1.85;}
 .card-body strong{color:var(--text);}
 
 /* TABLE */
-.tbl-wrap{overflow-x:auto;margin:16px 0;-webkit-overflow-scrolling:touch;}
-table{width:100%;border-collapse:collapse;font-size:13px;}
-th{background:var(--light);color:var(--amber);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:10px 14px;text-align:left;border-bottom:2px solid var(--amber);}
-td{padding:10px 14px;border-bottom:1px solid var(--border);color:var(--muted);vertical-align:top;line-height:1.75;}
+.tbl-wrap{overflow-x:auto;margin:16px 0;-webkit-overflow-scrolling:touch;border:1px solid #B8CAD8;border-radius:8px;box-shadow:0 2px 8px rgba(30,45,61,.08);overflow:hidden;}
+table{width:100%;border-collapse:collapse;font-size:13px;background:#FFFFFF;}
+th{background:#EEF5FB;color:#3A6B8A;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:10px 14px;text-align:left;border-bottom:2px solid var(--amber);}
+td{padding:11px 16px;border-bottom:1px solid #D8E5EE;color:var(--muted);vertical-align:top;line-height:1.75;}
 tr:last-child td{border-bottom:none;}
+.td-key{background:#F4F8FB;color:#2A4A62;font-weight:600;border-right:1px solid #C8D6E3;white-space:nowrap;}
 td strong{color:var(--text);}
-tr:hover td{background:var(--card2);}
+td:not(.td-key) strong{color:#4A7FA5;font-weight:600;}
+tr:hover td{background:#EEF5FB;}
 
 /* SVG */
 .svg-wrap{margin:20px 0;overflow-x:auto;max-width:100%;-webkit-overflow-scrolling:touch;}
@@ -101,14 +103,14 @@ tr:hover td{background:var(--card2);}
 .formula .eq{color:var(--muted);}
 
 /* CALLOUT */
-.callout{background:var(--card);border:1px solid var(--amber);border-radius:6px;padding:20px 24px;margin:20px 0;}
-.callout p{font-size:14px;color:var(--muted);line-height:1.9;margin-bottom:10px;}
+.callout{background:#EFF6FF;border:1px solid #C8DCF0;border-radius:6px;padding:20px 24px;margin:20px 0;}
+.callout p{font-size:15px;color:var(--muted);line-height:1.95;margin-bottom:12px;}
 .callout p:last-child{margin-bottom:0;}
 .callout strong{color:var(--text);}
 
 /* TAGS */
 .tags{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0;}
-.tag{font-size:12px;padding:4px 12px;border-radius:2px;background:var(--light);color:var(--muted);border:1px solid var(--border);}
+.tag{font-size:12px;padding:5px 13px;border-radius:2px;background:var(--light);color:var(--muted);border:1px solid var(--border);}
 .tag.amber{border-color:var(--amber);color:var(--amber);}
 .tag.green{border-color:var(--green);color:var(--green);}
 
@@ -131,16 +133,16 @@ tr:hover td{background:var(--card2);}
 .reveal.visible{opacity:1;transform:none;}
 
 /* MOBILE MENU */
-.mob-menu-btn{display:none;width:100%;background:var(--card2);border:none;border-bottom:1px solid var(--border);color:var(--amber);font-size:12px;font-weight:700;letter-spacing:.1em;padding:10px 20px;text-align:left;cursor:pointer;}
+.mob-menu-btn{display:none;width:100%;background:#1E2D3D;border:none;border-bottom:1px solid #2E4055;color:#7EC8E3;font-size:13px;font-weight:700;letter-spacing:.1em;padding:10px 20px;text-align:left;cursor:pointer;}
 .mob-menu-btn::after{content:' ▾';}
 .mob-menu-btn.open::after{content:' ▴';}
-.mob-sidebar-drawer{display:none;background:var(--card2);border-bottom:2px solid var(--border);padding:8px 0 12px;}
+.mob-sidebar-drawer{display:none;background:#1E2D3D;border-bottom:2px solid #2E4055;padding:8px 0 12px;}
 .mob-sidebar-drawer.open{display:block;}
 .mob-group{padding:6px 14px 4px;border-top:1px solid var(--border);margin-top:2px;}
-.mob-group-label{display:block;font-size:10px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--sub);margin-bottom:4px;padding-top:4px;}
+.mob-group-label{display:block;font-size:10px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:#4A6A82;margin-bottom:4px;padding-top:4px;}
 .mob-group-links{display:flex;flex-wrap:wrap;gap:4px 0;}
-.mob-sidebar-drawer a{font-size:12px;color:var(--sub);text-decoration:none;padding:3px 10px;border-radius:2px;}
-.mob-sidebar-drawer a:hover{color:var(--amber);}
+.mob-sidebar-drawer a{font-size:12px;color:#7FA8C4;text-decoration:none;padding:3px 10px;border-radius:2px;}
+.mob-sidebar-drawer a:hover{color:#7EC8E3;}
 
 footer{text-align:center;padding:32px 48px;font-size:12px;color:var(--sub);border-top:1px solid var(--border);}
 
@@ -206,7 +208,7 @@ footer{text-align:center;padding:32px 48px;font-size:12px;color:var(--sub);borde
 
 <!-- SIDEBAR: 全体像 -->
 <nav class="sidebar" id="sidebar-overview">
-  <div style="padding:14px 20px 10px;font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--sub);border-bottom:1px solid var(--border);margin-bottom:6px;">目次</div>
+  <div style="padding:14px 20px 10px;font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#4A6A82;border-bottom:1px solid #2E4055;margin-bottom:6px;">目次</div>
   <a href="javascript:void(0)" onclick="jumpTo('intro');return false;">はじめに</a>
   <a href="javascript:void(0)" onclick="jumpTo('structure');return false;">01 全体像</a>
   <a href="javascript:void(0)" onclick="jumpTo('traits');return false;">02 業務特性</a>
@@ -243,84 +245,85 @@ footer{text-align:center;padding:32px 48px;font-size:12px;color:var(--sub);borde
 <section class="section reveal" id="structure">
   <div class="sec-label">01 — Overview</div>
   <h2 class="sec-title">自動車部品メーカー営業の全体像</h2>
-  <div class="sec-body"><p>営業業務は「営業戦略 → 受注戦略 → 見積業務 → 価格運営 → 次期モデル戦略」という一連のサイクルで構成される。見積業務はその中核であり、業務全体の50%以上を占めると言われる。</p></div>
+  <div class="sec-body"><p>営業業務は「営業戦略 → 受注戦略 → 見積業務 → 価格運営 → 次期モデル戦略」という一連のサイクルで構成される。</p>
+<p>見積業務はその中核であり、業務全体の50%以上を占めると言われる。</p></div>
 
   <div class="svg-wrap">
     <svg style="width:100%;max-width:720px;display:block;" viewBox="0 0 720 100" xmlns="http://www.w3.org/2000/svg">
-      <defs><marker id="a1" markerWidth="7" markerHeight="7" refX="5" refY="3.5" orient="auto"><path d="M0,1 L7,3.5 L0,6Z" fill="#F5A623"/></marker></defs>
-      <rect x="8"   y="26" width="108" height="44" rx="4" fill="#1A2535" stroke="#2A3A50" stroke-width="1.5"/>
-      <text x="62"  y="46" text-anchor="middle" fill="#9DAFC4" font-size="10" font-family="sans-serif">STRATEGY</text>
-      <text x="62"  y="62" text-anchor="middle" fill="#F0EDE8" font-size="13" font-family="sans-serif" font-weight="700">営業戦略</text>
-      <line x1="118" y1="48" x2="140" y2="48" stroke="#F5A623" stroke-width="1.5" marker-end="url(#a1)"/>
+      <defs><marker id="a1" markerWidth="7" markerHeight="7" refX="5" refY="3.5" orient="auto"><path d="M0,1 L7,3.5 L0,6Z" fill="#4A7FA5"/></marker></defs>
+      <rect x="8"   y="26" width="108" height="44" rx="4" fill="#FFFFFF" stroke="#C8D6E3" stroke-width="1.5"/>
+      <text x="62"  y="46" text-anchor="middle" fill="#4A5D72" font-size="10" font-family="sans-serif">STRATEGY</text>
+      <text x="62"  y="62" text-anchor="middle" fill="#1E2A3A" font-size="13" font-family="sans-serif" font-weight="700">営業戦略</text>
+      <line x1="118" y1="48" x2="140" y2="48" stroke="#4A7FA5" stroke-width="1.5" marker-end="url(#a1)"/>
 
-      <rect x="143" y="26" width="108" height="44" rx="4" fill="#1A2535" stroke="#2A3A50" stroke-width="1.5"/>
-      <text x="197" y="46" text-anchor="middle" fill="#9DAFC4" font-size="10" font-family="sans-serif">WIN-BACK</text>
-      <text x="197" y="62" text-anchor="middle" fill="#F0EDE8" font-size="13" font-family="sans-serif" font-weight="700">受注戦略</text>
-      <line x1="253" y1="48" x2="275" y2="48" stroke="#F5A623" stroke-width="1.5" marker-end="url(#a1)"/>
+      <rect x="143" y="26" width="108" height="44" rx="4" fill="#FFFFFF" stroke="#C8D6E3" stroke-width="1.5"/>
+      <text x="197" y="46" text-anchor="middle" fill="#4A5D72" font-size="10" font-family="sans-serif">WIN-BACK</text>
+      <text x="197" y="62" text-anchor="middle" fill="#1E2A3A" font-size="13" font-family="sans-serif" font-weight="700">受注戦略</text>
+      <line x1="253" y1="48" x2="275" y2="48" stroke="#4A7FA5" stroke-width="1.5" marker-end="url(#a1)"/>
 
-      <rect x="278" y="16" width="140" height="64" rx="4" fill="#1E3050" stroke="#F5A623" stroke-width="2"/>
-      <text x="348" y="40" text-anchor="middle" fill="#F5A623" font-size="10" font-family="sans-serif" font-weight="700" letter-spacing="1">QUOTATION</text>
-      <text x="348" y="58" text-anchor="middle" fill="#F5A623" font-size="14" font-family="sans-serif" font-weight="700">見積業務</text>
-      <text x="348" y="73" text-anchor="middle" fill="#9DAFC4" font-size="10" font-family="sans-serif">← 業務の50%以上</text>
-      <line x1="420" y1="48" x2="442" y2="48" stroke="#F5A623" stroke-width="1.5" marker-end="url(#a1)"/>
+      <rect x="278" y="16" width="140" height="64" rx="4" fill="#EEF5FB" stroke="#4A7FA5" stroke-width="2"/>
+      <text x="348" y="40" text-anchor="middle" fill="#4A7FA5" font-size="10" font-family="sans-serif" font-weight="700" letter-spacing="1">QUOTATION</text>
+      <text x="348" y="58" text-anchor="middle" fill="#4A7FA5" font-size="14" font-family="sans-serif" font-weight="700">見積業務</text>
+      <text x="348" y="73" text-anchor="middle" fill="#4A5D72" font-size="10" font-family="sans-serif">← 業務の50%以上</text>
+      <line x1="420" y1="48" x2="442" y2="48" stroke="#4A7FA5" stroke-width="1.5" marker-end="url(#a1)"/>
 
-      <rect x="445" y="26" width="108" height="44" rx="4" fill="#1A2535" stroke="#2A3A50" stroke-width="1.5"/>
-      <text x="499" y="46" text-anchor="middle" fill="#9DAFC4" font-size="10" font-family="sans-serif">PRICE MGT</text>
-      <text x="499" y="62" text-anchor="middle" fill="#F0EDE8" font-size="13" font-family="sans-serif" font-weight="700">価格運営</text>
-      <line x1="555" y1="48" x2="577" y2="48" stroke="#F5A623" stroke-width="1.5" marker-end="url(#a1)"/>
+      <rect x="445" y="26" width="108" height="44" rx="4" fill="#FFFFFF" stroke="#C8D6E3" stroke-width="1.5"/>
+      <text x="499" y="46" text-anchor="middle" fill="#4A5D72" font-size="10" font-family="sans-serif">PRICE MGT</text>
+      <text x="499" y="62" text-anchor="middle" fill="#1E2A3A" font-size="13" font-family="sans-serif" font-weight="700">価格運営</text>
+      <line x1="555" y1="48" x2="577" y2="48" stroke="#4A7FA5" stroke-width="1.5" marker-end="url(#a1)"/>
 
-      <rect x="580" y="26" width="128" height="44" rx="4" fill="#1A2535" stroke="#2A3A50" stroke-width="1.5"/>
-      <text x="644" y="46" text-anchor="middle" fill="#9DAFC4" font-size="10" font-family="sans-serif">NEXT MODEL</text>
-      <text x="644" y="62" text-anchor="middle" fill="#F0EDE8" font-size="12" font-family="sans-serif" font-weight="700">次期モデル戦略</text>
+      <rect x="580" y="26" width="128" height="44" rx="4" fill="#FFFFFF" stroke="#C8D6E3" stroke-width="1.5"/>
+      <text x="644" y="46" text-anchor="middle" fill="#4A5D72" font-size="10" font-family="sans-serif">NEXT MODEL</text>
+      <text x="644" y="62" text-anchor="middle" fill="#1E2A3A" font-size="12" font-family="sans-serif" font-weight="700">次期モデル戦略</text>
     </svg>
   </div>
 
   <div class="sec-sub">営業が見ている世界（管理階層）</div>
   <div class="svg-wrap">
     <svg style="width:100%;max-width:720px;display:block;" viewBox="0 0 720 72" xmlns="http://www.w3.org/2000/svg">
-      <defs><marker id="a2" markerWidth="7" markerHeight="7" refX="5" refY="3.5" orient="auto"><path d="M0,1 L7,3.5 L0,6Z" fill="#9DAFC4"/></marker></defs>
-      <rect x="8"   y="16" width="90" height="36" rx="3" fill="#1A2535" stroke="#2A3A50"/><text x="53"  y="39" text-anchor="middle" fill="#9DAFC4" font-size="12" font-family="sans-serif" font-weight="600">顧客</text>
-      <line x1="100" y1="34" x2="120" y2="34" stroke="#9DAFC4" stroke-width="1.5" marker-end="url(#a2)"/>
-      <rect x="123" y="16" width="90" height="36" rx="3" fill="#1A2535" stroke="#2A3A50"/><text x="168" y="39" text-anchor="middle" fill="#9DAFC4" font-size="12" font-family="sans-serif" font-weight="600">車種</text>
-      <line x1="215" y1="34" x2="235" y2="34" stroke="#9DAFC4" stroke-width="1.5" marker-end="url(#a2)"/>
-      <rect x="238" y="16" width="90" height="36" rx="3" fill="#1A2535" stroke="#2A3A50"/><text x="283" y="39" text-anchor="middle" fill="#9DAFC4" font-size="12" font-family="sans-serif" font-weight="600">品目</text>
-      <line x1="330" y1="34" x2="350" y2="34" stroke="#9DAFC4" stroke-width="1.5" marker-end="url(#a2)"/>
-      <rect x="353" y="16" width="90" height="36" rx="3" fill="#1A2535" stroke="#2A3A50"/><text x="398" y="39" text-anchor="middle" fill="#9DAFC4" font-size="12" font-family="sans-serif" font-weight="600">ASSY</text>
-      <line x1="445" y1="34" x2="465" y2="34" stroke="#9DAFC4" stroke-width="1.5" marker-end="url(#a2)"/>
-      <rect x="468" y="16" width="90" height="36" rx="3" fill="#1A2535" stroke="#2A3A50"/><text x="513" y="39" text-anchor="middle" fill="#9DAFC4" font-size="12" font-family="sans-serif" font-weight="600">単品</text>
-      <line x1="560" y1="34" x2="580" y2="34" stroke="#9DAFC4" stroke-width="1.5" marker-end="url(#a2)"/>
-      <rect x="583" y="8"  width="120" height="52" rx="3" fill="#243044" stroke="#F5A623" stroke-width="1.5"/>
-      <text x="643" y="31" text-anchor="middle" fill="#F5A623" font-size="10" font-family="sans-serif">品番</text>
-      <text x="643" y="50" text-anchor="middle" fill="#F5A623" font-size="12" font-family="sans-serif" font-weight="700">見積明細</text>
+      <defs><marker id="a2" markerWidth="7" markerHeight="7" refX="5" refY="3.5" orient="auto"><path d="M0,1 L7,3.5 L0,6Z" fill="#4A5D72"/></marker></defs>
+      <rect x="8"   y="16" width="90" height="36" rx="3" fill="#FFFFFF" stroke="#C8D6E3"/><text x="53"  y="39" text-anchor="middle" fill="#4A5D72" font-size="12" font-family="sans-serif" font-weight="600">顧客</text>
+      <line x1="100" y1="34" x2="120" y2="34" stroke="#4A5D72" stroke-width="1.5" marker-end="url(#a2)"/>
+      <rect x="123" y="16" width="90" height="36" rx="3" fill="#FFFFFF" stroke="#C8D6E3"/><text x="168" y="39" text-anchor="middle" fill="#4A5D72" font-size="12" font-family="sans-serif" font-weight="600">車種</text>
+      <line x1="215" y1="34" x2="235" y2="34" stroke="#4A5D72" stroke-width="1.5" marker-end="url(#a2)"/>
+      <rect x="238" y="16" width="90" height="36" rx="3" fill="#FFFFFF" stroke="#C8D6E3"/><text x="283" y="39" text-anchor="middle" fill="#4A5D72" font-size="12" font-family="sans-serif" font-weight="600">品目</text>
+      <line x1="330" y1="34" x2="350" y2="34" stroke="#4A5D72" stroke-width="1.5" marker-end="url(#a2)"/>
+      <rect x="353" y="16" width="90" height="36" rx="3" fill="#FFFFFF" stroke="#C8D6E3"/><text x="398" y="39" text-anchor="middle" fill="#4A5D72" font-size="12" font-family="sans-serif" font-weight="600">ASSY</text>
+      <line x1="445" y1="34" x2="465" y2="34" stroke="#4A5D72" stroke-width="1.5" marker-end="url(#a2)"/>
+      <rect x="468" y="16" width="90" height="36" rx="3" fill="#FFFFFF" stroke="#C8D6E3"/><text x="513" y="39" text-anchor="middle" fill="#4A5D72" font-size="12" font-family="sans-serif" font-weight="600">単品</text>
+      <line x1="560" y1="34" x2="580" y2="34" stroke="#4A5D72" stroke-width="1.5" marker-end="url(#a2)"/>
+      <rect x="583" y="8"  width="120" height="52" rx="3" fill="#E2EAF2" stroke="#4A7FA5" stroke-width="1.5"/>
+      <text x="643" y="31" text-anchor="middle" fill="#4A7FA5" font-size="10" font-family="sans-serif">品番</text>
+      <text x="643" y="50" text-anchor="middle" fill="#4A7FA5" font-size="12" font-family="sans-serif" font-weight="700">見積明細</text>
     </svg>
   </div>
 
   <div class="sec-sub">営業が見ている時間軸</div>
   <div class="svg-wrap">
     <svg style="width:100%;max-width:720px;display:block;" viewBox="0 0 720 60" xmlns="http://www.w3.org/2000/svg">
-      <defs><marker id="a3" markerWidth="7" markerHeight="7" refX="5" refY="3.5" orient="auto"><path d="M0,1 L7,3.5 L0,6Z" fill="#9DAFC4"/></marker></defs>
+      <defs><marker id="a3" markerWidth="7" markerHeight="7" refX="5" refY="3.5" orient="auto"><path d="M0,1 L7,3.5 L0,6Z" fill="#4A5D72"/></marker></defs>
       <!-- 時間軸ライン -->
-      <line x1="20" y1="34" x2="700" y2="34" stroke="#2A3A50" stroke-width="1.5"/>
+      <line x1="20" y1="34" x2="700" y2="34" stroke="#C8D6E3" stroke-width="1.5"/>
       <!-- ノード -->
-      <circle cx="60"  cy="34" r="5" fill="#9DAFC4"/>
-      <circle cx="150" cy="34" r="5" fill="#9DAFC4"/>
-      <circle cx="240" cy="34" r="7" fill="#F5A623"/>
-      <circle cx="330" cy="34" r="7" fill="#F5A623"/>
-      <circle cx="420" cy="34" r="5" fill="#9DAFC4"/>
-      <circle cx="510" cy="34" r="5" fill="#9DAFC4"/>
-      <circle cx="600" cy="34" r="5" fill="#9DAFC4"/>
-      <circle cx="685" cy="34" r="5" fill="#3ECFA0"/>
+      <circle cx="60"  cy="34" r="5" fill="#4A5D72"/>
+      <circle cx="150" cy="34" r="5" fill="#4A5D72"/>
+      <circle cx="240" cy="34" r="7" fill="#4A7FA5"/>
+      <circle cx="330" cy="34" r="7" fill="#4A7FA5"/>
+      <circle cx="420" cy="34" r="5" fill="#4A5D72"/>
+      <circle cx="510" cy="34" r="5" fill="#4A5D72"/>
+      <circle cx="600" cy="34" r="5" fill="#4A5D72"/>
+      <circle cx="685" cy="34" r="5" fill="#16A34A"/>
       <!-- ラベル上 -->
-      <text x="60"  y="18" text-anchor="middle" fill="#9DAFC4" font-size="11" font-family="sans-serif">現行車</text>
-      <text x="150" y="18" text-anchor="middle" fill="#9DAFC4" font-size="11" font-family="sans-serif">次期車</text>
-      <text x="240" y="18" text-anchor="middle" fill="#F5A623" font-size="11" font-family="sans-serif" font-weight="700">RFQ</text>
-      <text x="330" y="18" text-anchor="middle" fill="#F5A623" font-size="11" font-family="sans-serif" font-weight="700">受注</text>
-      <text x="420" y="18" text-anchor="middle" fill="#9DAFC4" font-size="11" font-family="sans-serif">量産</text>
-      <text x="510" y="18" text-anchor="middle" fill="#9DAFC4" font-size="11" font-family="sans-serif">設変</text>
-      <text x="600" y="18" text-anchor="middle" fill="#9DAFC4" font-size="11" font-family="sans-serif">価格改定</text>
-      <text x="685" y="18" text-anchor="middle" fill="#3ECFA0" font-size="11" font-family="sans-serif">次期車</text>
+      <text x="60"  y="18" text-anchor="middle" fill="#4A5D72" font-size="11" font-family="sans-serif">現行車</text>
+      <text x="150" y="18" text-anchor="middle" fill="#4A5D72" font-size="11" font-family="sans-serif">次期車</text>
+      <text x="240" y="18" text-anchor="middle" fill="#4A7FA5" font-size="11" font-family="sans-serif" font-weight="700">RFQ</text>
+      <text x="330" y="18" text-anchor="middle" fill="#4A7FA5" font-size="11" font-family="sans-serif" font-weight="700">受注</text>
+      <text x="420" y="18" text-anchor="middle" fill="#4A5D72" font-size="11" font-family="sans-serif">量産</text>
+      <text x="510" y="18" text-anchor="middle" fill="#4A5D72" font-size="11" font-family="sans-serif">設変</text>
+      <text x="600" y="18" text-anchor="middle" fill="#4A5D72" font-size="11" font-family="sans-serif">価格改定</text>
+      <text x="685" y="18" text-anchor="middle" fill="#16A34A" font-size="11" font-family="sans-serif">次期車</text>
       <!-- 矢印 -->
-      <line x1="695" y1="34" x2="708" y2="34" stroke="#3ECFA0" stroke-width="1.5" marker-end="url(#a3)"/>
+      <line x1="695" y1="34" x2="708" y2="34" stroke="#16A34A" stroke-width="1.5" marker-end="url(#a3)"/>
     </svg>
   </div>
 </section>
@@ -333,13 +336,13 @@ footer{text-align:center;padding:32px 48px;font-size:12px;color:var(--sub);borde
     <table>
       <thead><tr><th>#</th><th>特性</th><th>内容</th></tr></thead>
       <tbody>
-        <tr><td>2-1</td><td><strong>車種起点で仕事が動く</strong></td><td>営業の管理単位は品番だが、利益管理は車種・品目・ASSYの階層で行う。顧客の車種計画が変わると業務全体が影響を受ける。</td></tr>
-        <tr><td>2-2</td><td><strong>数年先を見ながら仕事をする</strong></td><td>SOP・EOP・FMC・MC・派生・廃止のモデルライフ全体を管理する。現行車の対応をしながら、数年先の次期車計画に向けた活動を並行して進める。</td></tr>
-        <tr><td>2-3</td><td><strong>見積は一度で終わらない</strong></td><td>構想見積→試作見積→量産見積→設変見積→価格改定と、製品ライフを通じて繰り返し更新される。各フェーズで前提条件が変化する。</td></tr>
-        <tr><td>2-4</td><td><strong>利益は見積で決まる</strong></td><td>量産開始後の価格変更は難しい。見積フェーズで設定した価格がモデルライフを通じた利益を規定するため、見積精度が収益を左右する。</td></tr>
-        <tr><td>2-5</td><td><strong>多部門連携が前提</strong></td><td>技術・生産技術・調達・品保・生管・原価企画の各部門から情報を集め、営業が統合して見積を完成させる。</td></tr>
-        <tr><td>2-6</td><td><strong>過去との比較が重要</strong></td><td>前回見積との差分（設変・BOM変更・工程変更・市況変動・合理化）を要因別に説明できることが、顧客査定対応と社内決裁で必要になる。</td></tr>
-        <tr><td>2-7</td><td><strong>意思決定履歴が重要</strong></td><td>なぜその歩留率・工程・係数・戦略価格を採用したかの根拠を記録・保持することが、顧客査定・再交渉・社内決裁で不可欠。履歴が失われると根拠説明ができなくなる。</td></tr>
+        <tr><td class="td-key">2-1</td><td class="td-key"><strong>車種起点で仕事が動く</strong></td><td>営業の管理単位は品番だが、利益管理は車種・品目・ASSYの階層で行う。顧客の車種計画が変わると業務全体が影響を受ける。</td></tr>
+        <tr><td class="td-key">2-2</td><td class="td-key"><strong>数年先を見ながら仕事をする</strong></td><td>SOP・EOP・FMC・MC・派生・廃止のモデルライフ全体を管理する。現行車の対応をしながら、数年先の次期車計画に向けた活動を並行して進める。</td></tr>
+        <tr><td class="td-key">2-3</td><td class="td-key"><strong>見積は一度で終わらない</strong></td><td>構想見積→試作見積→量産見積→設変見積→価格改定と、製品ライフを通じて繰り返し更新される。各フェーズで前提条件が変化する。</td></tr>
+        <tr><td class="td-key">2-4</td><td class="td-key"><strong>利益は見積で決まる</strong></td><td>量産開始後の価格変更は難しい。見積フェーズで設定した価格がモデルライフを通じた利益を規定するため、見積精度が収益を左右する。</td></tr>
+        <tr><td class="td-key">2-5</td><td class="td-key"><strong>多部門連携が前提</strong></td><td>技術・生産技術・調達・品保・生管・原価企画の各部門から情報を集め、営業が統合して見積を完成させる。</td></tr>
+        <tr><td class="td-key">2-6</td><td class="td-key"><strong>過去との比較が重要</strong></td><td>前回見積との差分（設変・BOM変更・工程変更・市況変動・合理化）を要因別に説明できることが、顧客査定対応と社内決裁で必要になる。</td></tr>
+        <tr><td class="td-key">2-7</td><td class="td-key"><strong>意思決定履歴が重要</strong></td><td>なぜその歩留率・工程・係数・戦略価格を採用したかの根拠を記録・保持することが、顧客査定・再交渉・社内決裁で不可欠。履歴が失われると根拠説明ができなくなる。</td></tr>
       </tbody>
     </table>
   </div>
@@ -372,26 +375,26 @@ footer{text-align:center;padding:32px 48px;font-size:12px;color:var(--sub);borde
   <div class="sec-sub">3-3 新旧モデル比較・3-4 売上ギャップ分析</div>
   <div class="svg-wrap">
     <svg style="width:100%;max-width:720px;display:block;" viewBox="0 0 720 130" xmlns="http://www.w3.org/2000/svg">
-      <defs><marker id="a4" markerWidth="7" markerHeight="7" refX="5" refY="3.5" orient="auto"><path d="M0,1 L7,3.5 L0,6Z" fill="#F5A623"/></marker></defs>
+      <defs><marker id="a4" markerWidth="7" markerHeight="7" refX="5" refY="3.5" orient="auto"><path d="M0,1 L7,3.5 L0,6Z" fill="#4A7FA5"/></marker></defs>
       <!-- 現行モデル -->
-      <rect x="10" y="20" width="180" height="80" rx="4" fill="#1A2535" stroke="#2A3A50"/>
-      <text x="100" y="46" text-anchor="middle" fill="#9DAFC4" font-size="11" font-family="sans-serif" font-weight="700">現行モデル</text>
-      <text x="100" y="65" text-anchor="middle" fill="#F0EDE8" font-size="12" font-family="sans-serif">車種A・車種B</text>
-      <text x="100" y="83" text-anchor="middle" fill="#9DAFC4" font-size="11" font-family="sans-serif">現在の売上・利益</text>
-      <line x1="192" y1="60" x2="220" y2="60" stroke="#F5A623" stroke-width="1.5" marker-end="url(#a4)"/>
+      <rect x="10" y="20" width="180" height="80" rx="4" fill="#FFFFFF" stroke="#C8D6E3"/>
+      <text x="100" y="46" text-anchor="middle" fill="#4A5D72" font-size="11" font-family="sans-serif" font-weight="700">現行モデル</text>
+      <text x="100" y="65" text-anchor="middle" fill="#1E2A3A" font-size="12" font-family="sans-serif">車種A・車種B</text>
+      <text x="100" y="83" text-anchor="middle" fill="#4A5D72" font-size="11" font-family="sans-serif">現在の売上・利益</text>
+      <line x1="192" y1="60" x2="220" y2="60" stroke="#4A7FA5" stroke-width="1.5" marker-end="url(#a4)"/>
       <!-- ギャップ -->
-      <rect x="223" y="10" width="200" height="100" rx="4" fill="#1E3050" stroke="#F5A623" stroke-width="1.5"/>
-      <text x="323" y="36" text-anchor="middle" fill="#F5A623" font-size="11" font-family="sans-serif" font-weight="700">売上ギャップ分析</text>
-      <text x="323" y="56" text-anchor="middle" fill="#9DAFC4" font-size="11" font-family="sans-serif">自然減（EOP・廃止）</text>
-      <text x="323" y="74" text-anchor="middle" fill="#9DAFC4" font-size="11" font-family="sans-serif">自然増（台数増・派生）</text>
-      <text x="323" y="92" text-anchor="middle" fill="#F5A623" font-size="11" font-family="sans-serif" font-weight="700">→ 補填必要額を算出</text>
-      <line x1="425" y1="60" x2="453" y2="60" stroke="#F5A623" stroke-width="1.5" marker-end="url(#a4)"/>
+      <rect x="223" y="10" width="200" height="100" rx="4" fill="#EEF5FB" stroke="#4A7FA5" stroke-width="1.5"/>
+      <text x="323" y="36" text-anchor="middle" fill="#4A7FA5" font-size="11" font-family="sans-serif" font-weight="700">売上ギャップ分析</text>
+      <text x="323" y="56" text-anchor="middle" fill="#4A5D72" font-size="11" font-family="sans-serif">自然減（EOP・廃止）</text>
+      <text x="323" y="74" text-anchor="middle" fill="#4A5D72" font-size="11" font-family="sans-serif">自然増（台数増・派生）</text>
+      <text x="323" y="92" text-anchor="middle" fill="#4A7FA5" font-size="11" font-family="sans-serif" font-weight="700">→ 補填必要額を算出</text>
+      <line x1="425" y1="60" x2="453" y2="60" stroke="#4A7FA5" stroke-width="1.5" marker-end="url(#a4)"/>
       <!-- 補填戦略 -->
-      <rect x="456" y="10" width="250" height="100" rx="4" fill="#1A2535" stroke="#2A3A50"/>
-      <text x="581" y="36" text-anchor="middle" fill="#F5A623" font-size="11" font-family="sans-serif" font-weight="700">3-5 補填戦略立案</text>
-      <text x="581" y="56" text-anchor="middle" fill="#9DAFC4" font-size="11" font-family="sans-serif">品目拡大 ／ ASSY拡大</text>
-      <text x="581" y="74" text-anchor="middle" fill="#9DAFC4" font-size="11" font-family="sans-serif">顧客拡大 ／ 新規部品</text>
-      <text x="581" y="92" text-anchor="middle" fill="#9DAFC4" font-size="11" font-family="sans-serif">→ 次の受注戦略へ</text>
+      <rect x="456" y="10" width="250" height="100" rx="4" fill="#FFFFFF" stroke="#C8D6E3"/>
+      <text x="581" y="36" text-anchor="middle" fill="#4A7FA5" font-size="11" font-family="sans-serif" font-weight="700">3-5 補填戦略立案</text>
+      <text x="581" y="56" text-anchor="middle" fill="#4A5D72" font-size="11" font-family="sans-serif">品目拡大 ／ ASSY拡大</text>
+      <text x="581" y="74" text-anchor="middle" fill="#4A5D72" font-size="11" font-family="sans-serif">顧客拡大 ／ 新規部品</text>
+      <text x="581" y="92" text-anchor="middle" fill="#4A5D72" font-size="11" font-family="sans-serif">→ 次の受注戦略へ</text>
     </svg>
   </div>
 
@@ -443,17 +446,17 @@ footer{text-align:center;padding:32px 48px;font-size:12px;color:var(--sub);borde
       <thead><tr><th>価格戦略</th><th>考え方</th><th>主な適用場面</th></tr></thead>
       <tbody>
         <tr>
-          <td><strong>利益確保型</strong></td>
+          <td class="td-key"><strong>利益確保型</strong></td>
           <td>顧客査定に耐えられる範囲で、歩留率・工程構成・難易度係数・型費を適切に織り込み、利益を最大化する。ワークサイズ・歩留率・工程数・工程難易度・型費の妥当性を説明しながら、できるだけ利益を確保する価格設計を行う。</td>
           <td>トヨタ系の既存案件、受注確度が高い案件</td>
         </tr>
         <tr>
-          <td><strong>原価企画型</strong></td>
+          <td class="td-key"><strong>原価企画型</strong></td>
           <td>現時点での利益だけでなく、量産までの合理化・工程改善（工程短縮・歩留率改善・自動化・VA/VE・サプライヤー改善）を前提に価格を設計する。現時点では採算が厳しくても、量産時点で利益を確保できる見込みがあれば受注を判断する。</td>
           <td>開発初期の構想見積、合理化余地が大きい案件</td>
         </tr>
         <tr>
-          <td><strong>戦略受注型</strong></td>
+          <td class="td-key"><strong>戦略受注型</strong></td>
           <td>個別部品の利益ではなく、車種全体・ASSY全体・顧客全体で利益を考える。取りたいASSYがある、将来展開につながる、他部品で利益が取れるといった場合に、一部の部品を戦略的に低い利益率で受注することもある。</td>
           <td>戦略的に重要な車種・顧客、ASSY一括受注を狙う案件</td>
         </tr>
@@ -465,18 +468,18 @@ footer{text-align:center;padding:32px 48px;font-size:12px;color:var(--sub);borde
   <div class="sec-body"><p>価格戦略を決定するため、営業は複数の視点で利益シミュレーションを行う。単品採算だけでなく、最終的に車種売上・車種利益・顧客利益まで確認しながら意思決定を行う。</p></div>
   <div class="svg-wrap">
     <svg style="width:100%;max-width:560px;display:block;" viewBox="0 0 560 64" xmlns="http://www.w3.org/2000/svg">
-      <defs><marker id="asi" markerWidth="7" markerHeight="7" refX="5" refY="3.5" orient="auto"><path d="M0,1 L7,3.5 L0,6Z" fill="#F5A623"/></marker></defs>
-      <rect x="8"   y="12" width="80" height="38" rx="3" fill="#1A2535" stroke="#2A3A50"/><text x="48" y="35" text-anchor="middle" fill="#9DAFC4" font-size="12" font-family="sans-serif" font-weight="600">単品</text>
-      <line x1="90" y1="31" x2="112" y2="31" stroke="#F5A623" stroke-width="1.5" marker-end="url(#asi)"/>
-      <rect x="115" y="12" width="80" height="38" rx="3" fill="#1A2535" stroke="#2A3A50"/><text x="155" y="35" text-anchor="middle" fill="#9DAFC4" font-size="12" font-family="sans-serif" font-weight="600">ASSY</text>
-      <line x1="197" y1="31" x2="219" y2="31" stroke="#F5A623" stroke-width="1.5" marker-end="url(#asi)"/>
-      <rect x="222" y="12" width="80" height="38" rx="3" fill="#1A2535" stroke="#2A3A50"/><text x="262" y="35" text-anchor="middle" fill="#9DAFC4" font-size="12" font-family="sans-serif" font-weight="600">品目</text>
-      <line x1="304" y1="31" x2="326" y2="31" stroke="#F5A623" stroke-width="1.5" marker-end="url(#asi)"/>
-      <rect x="329" y="12" width="80" height="38" rx="3" fill="#1A2535" stroke="#2A3A50"/><text x="369" y="35" text-anchor="middle" fill="#9DAFC4" font-size="12" font-family="sans-serif" font-weight="600">車種</text>
-      <line x1="411" y1="31" x2="433" y2="31" stroke="#F5A623" stroke-width="1.5" marker-end="url(#asi)"/>
-      <rect x="436" y="4"  width="112" height="54" rx="3" fill="#1E3050" stroke="#F5A623" stroke-width="1.5"/>
-      <text x="492" y="27" text-anchor="middle" fill="#F5A623" font-size="11" font-family="sans-serif">顧客</text>
-      <text x="492" y="44" text-anchor="middle" fill="#F5A623" font-size="11" font-family="sans-serif" font-weight="700">最終確認</text>
+      <defs><marker id="asi" markerWidth="7" markerHeight="7" refX="5" refY="3.5" orient="auto"><path d="M0,1 L7,3.5 L0,6Z" fill="#4A7FA5"/></marker></defs>
+      <rect x="8"   y="12" width="80" height="38" rx="3" fill="#FFFFFF" stroke="#C8D6E3"/><text x="48" y="35" text-anchor="middle" fill="#4A5D72" font-size="12" font-family="sans-serif" font-weight="600">単品</text>
+      <line x1="90" y1="31" x2="112" y2="31" stroke="#4A7FA5" stroke-width="1.5" marker-end="url(#asi)"/>
+      <rect x="115" y="12" width="80" height="38" rx="3" fill="#FFFFFF" stroke="#C8D6E3"/><text x="155" y="35" text-anchor="middle" fill="#4A5D72" font-size="12" font-family="sans-serif" font-weight="600">ASSY</text>
+      <line x1="197" y1="31" x2="219" y2="31" stroke="#4A7FA5" stroke-width="1.5" marker-end="url(#asi)"/>
+      <rect x="222" y="12" width="80" height="38" rx="3" fill="#FFFFFF" stroke="#C8D6E3"/><text x="262" y="35" text-anchor="middle" fill="#4A5D72" font-size="12" font-family="sans-serif" font-weight="600">品目</text>
+      <line x1="304" y1="31" x2="326" y2="31" stroke="#4A7FA5" stroke-width="1.5" marker-end="url(#asi)"/>
+      <rect x="329" y="12" width="80" height="38" rx="3" fill="#FFFFFF" stroke="#C8D6E3"/><text x="369" y="35" text-anchor="middle" fill="#4A5D72" font-size="12" font-family="sans-serif" font-weight="600">車種</text>
+      <line x1="411" y1="31" x2="433" y2="31" stroke="#4A7FA5" stroke-width="1.5" marker-end="url(#asi)"/>
+      <rect x="436" y="4"  width="112" height="54" rx="3" fill="#EEF5FB" stroke="#4A7FA5" stroke-width="1.5"/>
+      <text x="492" y="27" text-anchor="middle" fill="#4A7FA5" font-size="11" font-family="sans-serif">顧客</text>
+      <text x="492" y="44" text-anchor="middle" fill="#4A7FA5" font-size="11" font-family="sans-serif" font-weight="700">最終確認</text>
     </svg>
   </div>
 
@@ -513,11 +516,11 @@ footer{text-align:center;padding:32px 48px;font-size:12px;color:var(--sub);borde
     <table>
       <thead><tr><th>イベント</th><th>内容</th><th>営業の対応</th></tr></thead>
       <tbody>
-        <tr><td><strong>設変（設計変更）</strong></td><td>製品仕様・材料・工程の変更</td><td>設変見積の作成・差額請求</td></tr>
-        <tr><td><strong>合理化</strong></td><td>工程・材料の原価低減活動</td><td>合理化効果の顧客還元・社内取り分の交渉</td></tr>
-        <tr><td><strong>市況変動</strong></td><td>材料費・エネルギーコストの変動</td><td>市況変動を根拠にした価格改定交渉</td></tr>
-        <tr><td><strong>価格改定</strong></td><td>定期的な価格見直し</td><td>値上げ根拠の整理・交渉履歴の管理</td></tr>
-        <tr><td><strong>意思決定履歴</strong></td><td>価格変更の根拠と経緯</td><td>交渉・査定での根拠説明に活用</td></tr>
+        <tr><td class="td-key"><strong>設変（設計変更）</strong></td><td>製品仕様・材料・工程の変更</td><td>設変見積の作成・差額請求</td></tr>
+        <tr><td class="td-key"><strong>合理化</strong></td><td>工程・材料の原価低減活動</td><td>合理化効果の顧客還元・社内取り分の交渉</td></tr>
+        <tr><td class="td-key"><strong>市況変動</strong></td><td>材料費・エネルギーコストの変動</td><td>市況変動を根拠にした価格改定交渉</td></tr>
+        <tr><td class="td-key"><strong>価格改定</strong></td><td>定期的な価格見直し</td><td>値上げ根拠の整理・交渉履歴の管理</td></tr>
+        <tr><td class="td-key"><strong>意思決定履歴</strong></td><td>価格変更の根拠と経緯</td><td>交渉・査定での根拠説明に活用</td></tr>
       </tbody>
     </table>
   </div>
@@ -543,34 +546,34 @@ footer{text-align:center;padding:32px 48px;font-size:12px;color:var(--sub);borde
   <div class="sec-body"><p>個別の見積ツール・Excelを超え、モデル情報から価格運営まで一気通貫で管理できる「営業収益プラットフォーム」として再設計することが目標となる。</p></div>
   <div class="svg-wrap">
     <svg style="width:100%;max-width:720px;display:block;" viewBox="0 0 720 180" xmlns="http://www.w3.org/2000/svg">
-      <defs><marker id="a5" markerWidth="7" markerHeight="7" refX="5" refY="3.5" orient="auto"><path d="M0,1 L7,3.5 L0,6Z" fill="#3ECFA0"/></marker></defs>
+      <defs><marker id="a5" markerWidth="7" markerHeight="7" refX="5" refY="3.5" orient="auto"><path d="M0,1 L7,3.5 L0,6Z" fill="#16A34A"/></marker></defs>
       <!-- フロー -->
-      <rect x="10"  y="24" width="118" height="44" rx="4" fill="#1A2535" stroke="#2A3A50"/>
-      <text x="69" y="44" text-anchor="middle" fill="#9DAFC4" font-size="10">MODEL INFO</text>
-      <text x="69" y="60" text-anchor="middle" fill="#F0EDE8" font-size="13" font-weight="700" font-family="sans-serif">モデル情報</text>
-      <line x1="130" y1="46" x2="152" y2="46" stroke="#3ECFA0" stroke-width="1.5" marker-end="url(#a5)"/>
-      <rect x="155" y="24" width="118" height="44" rx="4" fill="#1A2535" stroke="#2A3A50"/>
-      <text x="214" y="44" text-anchor="middle" fill="#9DAFC4" font-size="10">STRATEGY</text>
-      <text x="214" y="60" text-anchor="middle" fill="#F0EDE8" font-size="13" font-weight="700" font-family="sans-serif">営業戦略</text>
-      <line x1="275" y1="46" x2="297" y2="46" stroke="#3ECFA0" stroke-width="1.5" marker-end="url(#a5)"/>
-      <rect x="300" y="14" width="130" height="64" rx="4" fill="#1E3050" stroke="#3ECFA0" stroke-width="2"/>
-      <text x="365" y="38" text-anchor="middle" fill="#3ECFA0" font-size="10" font-weight="700" letter-spacing="1">QUOTATION</text>
-      <text x="365" y="58" text-anchor="middle" fill="#3ECFA0" font-size="14" font-weight="700" font-family="sans-serif">見積業務</text>
-      <text x="365" y="72" text-anchor="middle" fill="#9DAFC4" font-size="9">← DX化の中核</text>
-      <line x1="432" y1="46" x2="454" y2="46" stroke="#3ECFA0" stroke-width="1.5" marker-end="url(#a5)"/>
-      <rect x="457" y="24" width="118" height="44" rx="4" fill="#1A2535" stroke="#2A3A50"/>
-      <text x="516" y="44" text-anchor="middle" fill="#9DAFC4" font-size="10">PRICE MGT</text>
-      <text x="516" y="60" text-anchor="middle" fill="#F0EDE8" font-size="13" font-weight="700" font-family="sans-serif">価格運営</text>
+      <rect x="10"  y="24" width="118" height="44" rx="4" fill="#FFFFFF" stroke="#C8D6E3"/>
+      <text x="69" y="44" text-anchor="middle" fill="#4A5D72" font-size="10">MODEL INFO</text>
+      <text x="69" y="60" text-anchor="middle" fill="#1E2A3A" font-size="13" font-weight="700" font-family="sans-serif">モデル情報</text>
+      <line x1="130" y1="46" x2="152" y2="46" stroke="#16A34A" stroke-width="1.5" marker-end="url(#a5)"/>
+      <rect x="155" y="24" width="118" height="44" rx="4" fill="#FFFFFF" stroke="#C8D6E3"/>
+      <text x="214" y="44" text-anchor="middle" fill="#4A5D72" font-size="10">STRATEGY</text>
+      <text x="214" y="60" text-anchor="middle" fill="#1E2A3A" font-size="13" font-weight="700" font-family="sans-serif">営業戦略</text>
+      <line x1="275" y1="46" x2="297" y2="46" stroke="#16A34A" stroke-width="1.5" marker-end="url(#a5)"/>
+      <rect x="300" y="14" width="130" height="64" rx="4" fill="#EEF5FB" stroke="#16A34A" stroke-width="2"/>
+      <text x="365" y="38" text-anchor="middle" fill="#16A34A" font-size="10" font-weight="700" letter-spacing="1">QUOTATION</text>
+      <text x="365" y="58" text-anchor="middle" fill="#16A34A" font-size="14" font-weight="700" font-family="sans-serif">見積業務</text>
+      <text x="365" y="72" text-anchor="middle" fill="#4A5D72" font-size="9">← DX化の中核</text>
+      <line x1="432" y1="46" x2="454" y2="46" stroke="#16A34A" stroke-width="1.5" marker-end="url(#a5)"/>
+      <rect x="457" y="24" width="118" height="44" rx="4" fill="#FFFFFF" stroke="#C8D6E3"/>
+      <text x="516" y="44" text-anchor="middle" fill="#4A5D72" font-size="10">PRICE MGT</text>
+      <text x="516" y="60" text-anchor="middle" fill="#1E2A3A" font-size="13" font-weight="700" font-family="sans-serif">価格運営</text>
       <!-- 見える化 -->
-      <rect x="10" y="110" width="700" height="58" rx="4" fill="#141D28" stroke="#2A3A50"/>
-      <text x="355" y="130" text-anchor="middle" fill="#6B7F96" font-size="10" font-family="sans-serif" font-weight="700" letter-spacing="2">VISIBILITY — プラットフォームで常時見える指標</text>
-      <text x="60"  y="154" text-anchor="middle" fill="#3ECFA0" font-size="12" font-family="sans-serif">車種売上</text>
-      <text x="160" y="154" text-anchor="middle" fill="#3ECFA0" font-size="12" font-family="sans-serif">車種利益</text>
-      <text x="260" y="154" text-anchor="middle" fill="#3ECFA0" font-size="12" font-family="sans-serif">品目利益</text>
-      <text x="360" y="154" text-anchor="middle" fill="#3ECFA0" font-size="12" font-family="sans-serif">ASSY利益</text>
-      <text x="468" y="154" text-anchor="middle" fill="#3ECFA0" font-size="12" font-family="sans-serif">売上ギャップ</text>
-      <text x="580" y="154" text-anchor="middle" fill="#3ECFA0" font-size="12" font-family="sans-serif">補填シナリオ</text>
-      <line x1="10" y1="140" x2="710" y2="140" stroke="#2A3A50" stroke-width="1"/>
+      <rect x="10" y="110" width="700" height="58" rx="4" fill="#ECF2F7" stroke="#C8D6E3"/>
+      <text x="355" y="130" text-anchor="middle" fill="#8FA8BF" font-size="10" font-family="sans-serif" font-weight="700" letter-spacing="2">VISIBILITY — プラットフォームで常時見える指標</text>
+      <text x="60"  y="154" text-anchor="middle" fill="#16A34A" font-size="12" font-family="sans-serif">車種売上</text>
+      <text x="160" y="154" text-anchor="middle" fill="#16A34A" font-size="12" font-family="sans-serif">車種利益</text>
+      <text x="260" y="154" text-anchor="middle" fill="#16A34A" font-size="12" font-family="sans-serif">品目利益</text>
+      <text x="360" y="154" text-anchor="middle" fill="#16A34A" font-size="12" font-family="sans-serif">ASSY利益</text>
+      <text x="468" y="154" text-anchor="middle" fill="#16A34A" font-size="12" font-family="sans-serif">売上ギャップ</text>
+      <text x="580" y="154" text-anchor="middle" fill="#16A34A" font-size="12" font-family="sans-serif">補填シナリオ</text>
+      <line x1="10" y1="140" x2="710" y2="140" stroke="#C8D6E3" stroke-width="1"/>
     </svg>
   </div>
 </section>
@@ -583,11 +586,11 @@ footer{text-align:center;padding:32px 48px;font-size:12px;color:var(--sub);borde
     <table>
       <thead><tr><th>領域</th><th>内容</th></tr></thead>
       <tbody>
-        <tr><td><strong>情報統合</strong></td><td>モデル情報・見積根拠・交渉履歴・市況データを一元管理し、バージョン管理と横断参照を可能にする</td></tr>
-        <tr><td><strong>標準化</strong></td><td>計算ロジック・売価テーブル・費目構造を標準化し、属人的な計算方法を排除する</td></tr>
-        <tr><td><strong>可視化</strong></td><td>車種・品目・ASSY単位の売上・利益・ギャップをリアルタイムで把握できるダッシュボードを整備する</td></tr>
-        <tr><td><strong>ワークフロー</strong></td><td>社内依頼〜根拠収集〜明細作成〜決裁のプロセスをシステム上で管理し、進捗と手戻りを削減する</td></tr>
-        <tr><td><strong>ナレッジ管理</strong></td><td>過去見積・類似品・意思決定の根拠を構造化して蓄積し、組織知として活用できる状態にする</td></tr>
+        <tr><td class="td-key"><strong>情報統合</strong></td><td>モデル情報・見積根拠・交渉履歴・市況データを一元管理し、バージョン管理と横断参照を可能にする</td></tr>
+        <tr><td class="td-key"><strong>標準化</strong></td><td>計算ロジック・売価テーブル・費目構造を標準化し、属人的な計算方法を排除する</td></tr>
+        <tr><td class="td-key"><strong>可視化</strong></td><td>車種・品目・ASSY単位の売上・利益・ギャップをリアルタイムで把握できるダッシュボードを整備する</td></tr>
+        <tr><td class="td-key"><strong>ワークフロー</strong></td><td>社内依頼〜根拠収集〜明細作成〜決裁のプロセスをシステム上で管理し、進捗と手戻りを削減する</td></tr>
+        <tr><td class="td-key"><strong>ナレッジ管理</strong></td><td>過去見積・類似品・意思決定の根拠を構造化して蓄積し、組織知として活用できる状態にする</td></tr>
       </tbody>
     </table>
   </div>
@@ -601,12 +604,12 @@ footer{text-align:center;padding:32px 48px;font-size:12px;color:var(--sub);borde
     <table>
       <thead><tr><th>領域</th><th>AI活用の内容</th></tr></thead>
       <tbody>
-        <tr><td><strong>AI 営業戦略</strong></td><td>車種・品目単位の売上予測。モデルライフ変化による自然増減の自動計算。補填候補の提案。</td></tr>
-        <tr><td><strong>AI 受注戦略</strong></td><td>類似案件の自動検索・スコアリング。コスト構造比較。利益シミュレーションの自動生成。</td></tr>
-        <tr><td><strong>AI 見積支援</strong></td><td>類似品を参照した見積明細の初期値生成。売価テーブルの自動適用。市況補正。</td></tr>
-        <tr><td><strong>AI レビュー</strong></td><td>歩留率・工程数・難易度係数が過去実績と比較して妥当かをAIがチェックしコメントを付与。</td></tr>
-        <tr><td><strong>AI 差分分析</strong></td><td>前回見積との差分を設変・BOM・工程・市況・合理化・戦略の要因別に自動分解・説明文生成。</td></tr>
-        <tr><td><strong>AI 価格運営</strong></td><td>値上げ交渉の根拠資料を自動生成。合理化進捗の分析。価格改定シナリオの複数案生成。</td></tr>
+        <tr><td class="td-key"><strong>AI 営業戦略</strong></td><td>車種・品目単位の売上予測。モデルライフ変化による自然増減の自動計算。補填候補の提案。</td></tr>
+        <tr><td class="td-key"><strong>AI 受注戦略</strong></td><td>類似案件の自動検索・スコアリング。コスト構造比較。利益シミュレーションの自動生成。</td></tr>
+        <tr><td class="td-key"><strong>AI 見積支援</strong></td><td>類似品を参照した見積明細の初期値生成。売価テーブルの自動適用。市況補正。</td></tr>
+        <tr><td class="td-key"><strong>AI レビュー</strong></td><td>歩留率・工程数・難易度係数が過去実績と比較して妥当かをAIがチェックしコメントを付与。</td></tr>
+        <tr><td class="td-key"><strong>AI 差分分析</strong></td><td>前回見積との差分を設変・BOM・工程・市況・合理化・戦略の要因別に自動分解・説明文生成。</td></tr>
+        <tr><td class="td-key"><strong>AI 価格運営</strong></td><td>値上げ交渉の根拠資料を自動生成。合理化進捗の分析。価格改定シナリオの複数案生成。</td></tr>
       </tbody>
     </table>
   </div>
@@ -710,7 +713,7 @@ footer{text-align:center;padding:32px 48px;font-size:12px;color:var(--sub);borde
 
 <!-- SIDEBAR: 見積詳細 -->
 <nav class="sidebar" id="sidebar-quotation">
-  <div style="padding:14px 20px 10px;font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--sub);border-bottom:1px solid var(--border);margin-bottom:6px;">目次</div>
+  <div style="padding:14px 20px 10px;font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#4A6A82;border-bottom:1px solid #2E4055;margin-bottom:6px;">目次</div>
   <div class="sidebar-group">
     <span class="sidebar-group-label">見積業務 概要</span>
     <a href="javascript:void(0)" onclick="jumpTo('q-intro2');return false;">5-1 見積業務とは</a>
@@ -789,14 +792,14 @@ footer{text-align:center;padding:32px 48px;font-size:12px;color:var(--sub);borde
     <table>
       <thead><tr><th>項目</th><th>内容</th><th>注意点</th></tr></thead>
       <tbody>
-        <tr><td><strong>RFQ</strong></td><td>顧客からの見積依頼書。品番・仕様・数量・日程・提出期限を含む</td><td>不明点は早期に顧客確認が必要</td></tr>
-        <tr><td><strong>図面</strong></td><td>製品の形状・寸法・公差・材質指定を示す設計図</td><td>版番号の確認必須。旧版を使うとロスが発生する</td></tr>
-        <tr><td><strong>BOM</strong></td><td>部品構成表。ASSY→単品→品番の構成と員数を示す</td><td>BOM版と見積版の対応を管理する</td></tr>
-        <tr><td><strong>仕様</strong></td><td>材質指定・表面処理・特殊要求事項など</td><td>特殊仕様は加工費・検査費に大きく影響する</td></tr>
-        <tr><td><strong>数量</strong></td><td>月間企画台数・年間台数</td><td>型費償却の計算根拠になる</td></tr>
-        <tr><td><strong>日程</strong></td><td>試作イベント・初品納入日・本型時期・本工程時期・SOP</td><td>日程によって投資タイミングと回収計画が変わる</td></tr>
-        <tr><td><strong>市況</strong></td><td>材料単価・エネルギーコスト・外注費の市況水準</td><td>見積時点の市況を記録し、後の差分分析に使う</td></tr>
-        <tr><td><strong>支給品</strong></td><td>顧客支給の材料・部品</td><td>支給品は見積上「支給費」として別管理する</td></tr>
+        <tr><td class="td-key"><strong>RFQ</strong></td><td>顧客からの見積依頼書。品番・仕様・数量・日程・提出期限を含む</td><td>不明点は早期に顧客確認が必要</td></tr>
+        <tr><td class="td-key"><strong>図面</strong></td><td>製品の形状・寸法・公差・材質指定を示す設計図</td><td>版番号の確認必須。旧版を使うとロスが発生する</td></tr>
+        <tr><td class="td-key"><strong>BOM</strong></td><td>部品構成表。ASSY→単品→品番の構成と員数を示す</td><td>BOM版と見積版の対応を管理する</td></tr>
+        <tr><td class="td-key"><strong>仕様</strong></td><td>材質指定・表面処理・特殊要求事項など</td><td>特殊仕様は加工費・検査費に大きく影響する</td></tr>
+        <tr><td class="td-key"><strong>数量</strong></td><td>月間企画台数・年間台数</td><td>型費償却の計算根拠になる</td></tr>
+        <tr><td class="td-key"><strong>日程</strong></td><td>試作イベント・初品納入日・本型時期・本工程時期・SOP</td><td>日程によって投資タイミングと回収計画が変わる</td></tr>
+        <tr><td class="td-key"><strong>市況</strong></td><td>材料単価・エネルギーコスト・外注費の市況水準</td><td>見積時点の市況を記録し、後の差分分析に使う</td></tr>
+        <tr><td class="td-key"><strong>支給品</strong></td><td>顧客支給の材料・部品</td><td>支給品は見積上「支給費」として別管理する</td></tr>
       </tbody>
     </table>
   </div>
@@ -811,12 +814,12 @@ footer{text-align:center;padding:32px 48px;font-size:12px;color:var(--sub);borde
     <table>
       <thead><tr><th>部門</th><th>依頼内容</th><th>返答（見積根拠）</th></tr></thead>
       <tbody>
-        <tr><td><strong>技術</strong></td><td>図面・BOM・仕様の確認</td><td>最新図面番号、BOM構成、類似品情報</td></tr>
-        <tr><td><strong>生産技術</strong></td><td>工程構成・加工条件の確認</td><td>工程申告書、歩留申告書、設備条件、CT、歩留率</td></tr>
-        <tr><td><strong>調達</strong></td><td>材料・購入品・外注・金型の見積依頼</td><td>材料見積、購入品見積、外注見積、金型見積</td></tr>
-        <tr><td><strong>品質保証</strong></td><td>検査条件・治具費の確認</td><td>検査条件、検査治具費、特殊検査費</td></tr>
-        <tr><td><strong>生産管理</strong></td><td>荷姿・物流条件の確認</td><td>荷姿条件、専用箱費、物流費</td></tr>
-        <tr><td><strong>原価企画</strong></td><td>基準レート・採算条件の確認</td><td>基準レート、市況情報、採算評価結果</td></tr>
+        <tr><td class="td-key"><strong>技術</strong></td><td>図面・BOM・仕様の確認</td><td>最新図面番号、BOM構成、類似品情報</td></tr>
+        <tr><td class="td-key"><strong>生産技術</strong></td><td>工程構成・加工条件の確認</td><td>工程申告書、歩留申告書、設備条件、CT、歩留率</td></tr>
+        <tr><td class="td-key"><strong>調達</strong></td><td>材料・購入品・外注・金型の見積依頼</td><td>材料見積、購入品見積、外注見積、金型見積</td></tr>
+        <tr><td class="td-key"><strong>品質保証</strong></td><td>検査条件・治具費の確認</td><td>検査条件、検査治具費、特殊検査費</td></tr>
+        <tr><td class="td-key"><strong>生産管理</strong></td><td>荷姿・物流条件の確認</td><td>荷姿条件、専用箱費、物流費</td></tr>
+        <tr><td class="td-key"><strong>原価企画</strong></td><td>基準レート・採算条件の確認</td><td>基準レート、市況情報、採算評価結果</td></tr>
       </tbody>
     </table>
   </div>
@@ -865,40 +868,40 @@ footer{text-align:center;padding:32px 48px;font-size:12px;color:var(--sub);borde
   <div class="sec-body"><p>見積明細書は、各部門から収集した根拠を費目別に統合した成果物だ。</p><p>案件→車種→ASSY→単品→品番の階層を持つ。</p></div>
   <div class="svg-wrap">
     <svg style="width:100%;max-width:720px;display:block;" viewBox="0 0 720 96" xmlns="http://www.w3.org/2000/svg">
-      <rect x="8"   y="14" width="84" height="62" rx="3" fill="#1A2535" stroke="#2A3A50"/>
-      <text x="50"  y="42" text-anchor="middle" fill="#F5A623" font-size="13" font-family="sans-serif" font-weight="700">材料</text>
-      <text x="50"  y="58" text-anchor="middle" fill="#9DAFC4" font-size="9" font-family="sans-serif">Material</text>
-      <text x="50"  y="71" text-anchor="middle" fill="#6B7F96" font-size="8">材料費/スクラップ</text>
+      <rect x="8"   y="14" width="84" height="62" rx="3" fill="#FFFFFF" stroke="#C8D6E3"/>
+      <text x="50"  y="42" text-anchor="middle" fill="#4A7FA5" font-size="13" font-family="sans-serif" font-weight="700">材料</text>
+      <text x="50"  y="58" text-anchor="middle" fill="#4A5D72" font-size="9" font-family="sans-serif">Material</text>
+      <text x="50"  y="71" text-anchor="middle" fill="#8FA8BF" font-size="8">材料費/スクラップ</text>
 
-      <rect x="102" y="14" width="84" height="62" rx="3" fill="#1A2535" stroke="#2A3A50"/>
-      <text x="144" y="42" text-anchor="middle" fill="#F5A623" font-size="13" font-family="sans-serif" font-weight="700">加工</text>
-      <text x="144" y="58" text-anchor="middle" fill="#9DAFC4" font-size="9" font-family="sans-serif">Process</text>
-      <text x="144" y="71" text-anchor="middle" fill="#6B7F96" font-size="8">プレス/溶接/塗装</text>
+      <rect x="102" y="14" width="84" height="62" rx="3" fill="#FFFFFF" stroke="#C8D6E3"/>
+      <text x="144" y="42" text-anchor="middle" fill="#4A7FA5" font-size="13" font-family="sans-serif" font-weight="700">加工</text>
+      <text x="144" y="58" text-anchor="middle" fill="#4A5D72" font-size="9" font-family="sans-serif">Process</text>
+      <text x="144" y="71" text-anchor="middle" fill="#8FA8BF" font-size="8">プレス/溶接/塗装</text>
 
-      <rect x="196" y="14" width="84" height="62" rx="3" fill="#1A2535" stroke="#2A3A50"/>
-      <text x="238" y="42" text-anchor="middle" fill="#F5A623" font-size="13" font-family="sans-serif" font-weight="700">購入</text>
-      <text x="238" y="58" text-anchor="middle" fill="#9DAFC4" font-size="9" font-family="sans-serif">Purchase</text>
-      <text x="238" y="71" text-anchor="middle" fill="#6B7F96" font-size="8">購入部品費</text>
+      <rect x="196" y="14" width="84" height="62" rx="3" fill="#FFFFFF" stroke="#C8D6E3"/>
+      <text x="238" y="42" text-anchor="middle" fill="#4A7FA5" font-size="13" font-family="sans-serif" font-weight="700">購入</text>
+      <text x="238" y="58" text-anchor="middle" fill="#4A5D72" font-size="9" font-family="sans-serif">Purchase</text>
+      <text x="238" y="71" text-anchor="middle" fill="#8FA8BF" font-size="8">購入部品費</text>
 
-      <rect x="290" y="14" width="84" height="62" rx="3" fill="#1A2535" stroke="#2A3A50"/>
-      <text x="332" y="42" text-anchor="middle" fill="#F5A623" font-size="13" font-family="sans-serif" font-weight="700">支給</text>
-      <text x="332" y="58" text-anchor="middle" fill="#9DAFC4" font-size="9" font-family="sans-serif">Supplied</text>
-      <text x="332" y="71" text-anchor="middle" fill="#6B7F96" font-size="8">顧客支給品</text>
+      <rect x="290" y="14" width="84" height="62" rx="3" fill="#FFFFFF" stroke="#C8D6E3"/>
+      <text x="332" y="42" text-anchor="middle" fill="#4A7FA5" font-size="13" font-family="sans-serif" font-weight="700">支給</text>
+      <text x="332" y="58" text-anchor="middle" fill="#4A5D72" font-size="9" font-family="sans-serif">Supplied</text>
+      <text x="332" y="71" text-anchor="middle" fill="#8FA8BF" font-size="8">顧客支給品</text>
 
-      <rect x="384" y="14" width="84" height="62" rx="3" fill="#1A2535" stroke="#2A3A50"/>
-      <text x="426" y="42" text-anchor="middle" fill="#F5A623" font-size="13" font-family="sans-serif" font-weight="700">管理</text>
-      <text x="426" y="58" text-anchor="middle" fill="#9DAFC4" font-size="9" font-family="sans-serif">Overhead</text>
-      <text x="426" y="71" text-anchor="middle" fill="#6B7F96" font-size="8">管理費率</text>
+      <rect x="384" y="14" width="84" height="62" rx="3" fill="#FFFFFF" stroke="#C8D6E3"/>
+      <text x="426" y="42" text-anchor="middle" fill="#4A7FA5" font-size="13" font-family="sans-serif" font-weight="700">管理</text>
+      <text x="426" y="58" text-anchor="middle" fill="#4A5D72" font-size="9" font-family="sans-serif">Overhead</text>
+      <text x="426" y="71" text-anchor="middle" fill="#8FA8BF" font-size="8">管理費率</text>
 
-      <rect x="478" y="14" width="84" height="62" rx="3" fill="#1E3050" stroke="#F5A623" stroke-width="1.5"/>
-      <text x="520" y="42" text-anchor="middle" fill="#F5A623" font-size="13" font-family="sans-serif" font-weight="700">利益</text>
-      <text x="520" y="58" text-anchor="middle" fill="#F5A623" font-size="9" font-family="sans-serif">Profit</text>
-      <text x="520" y="71" text-anchor="middle" fill="#9DAFC4" font-size="8">利益率設定</text>
+      <rect x="478" y="14" width="84" height="62" rx="3" fill="#EEF5FB" stroke="#4A7FA5" stroke-width="1.5"/>
+      <text x="520" y="42" text-anchor="middle" fill="#4A7FA5" font-size="13" font-family="sans-serif" font-weight="700">利益</text>
+      <text x="520" y="58" text-anchor="middle" fill="#4A7FA5" font-size="9" font-family="sans-serif">Profit</text>
+      <text x="520" y="71" text-anchor="middle" fill="#4A5D72" font-size="8">利益率設定</text>
 
-      <rect x="572" y="14" width="84" height="62" rx="3" fill="#1A2535" stroke="#2A3A50"/>
-      <text x="614" y="42" text-anchor="middle" fill="#F5A623" font-size="13" font-family="sans-serif" font-weight="700">型</text>
-      <text x="614" y="58" text-anchor="middle" fill="#9DAFC4" font-size="9" font-family="sans-serif">Tooling</text>
-      <text x="614" y="71" text-anchor="middle" fill="#6B7F96" font-size="8">型費償却</text>
+      <rect x="572" y="14" width="84" height="62" rx="3" fill="#FFFFFF" stroke="#C8D6E3"/>
+      <text x="614" y="42" text-anchor="middle" fill="#4A7FA5" font-size="13" font-family="sans-serif" font-weight="700">型</text>
+      <text x="614" y="58" text-anchor="middle" fill="#4A5D72" font-size="9" font-family="sans-serif">Tooling</text>
+      <text x="614" y="71" text-anchor="middle" fill="#8FA8BF" font-size="8">型費償却</text>
     </svg>
   </div>
 </section>
@@ -929,12 +932,12 @@ footer{text-align:center;padding:32px 48px;font-size:12px;color:var(--sub);borde
     <table>
       <thead><tr><th>項目</th><th>内容</th></tr></thead>
       <tbody>
-        <tr><td><strong>ワークサイズ</strong></td><td>プレス成形に使用する素材の外形寸法（縦×横）</td></tr>
-        <tr><td><strong>板厚</strong></td><td>材料の厚み。鉄板・アルミ板など素材ごとに設定</td></tr>
-        <tr><td><strong>材料密度</strong></td><td>素材固有の密度（鉄：7.85 g/cm³、アルミ：2.70 g/cm³ など）</td></tr>
-        <tr><td><strong>歩留率</strong></td><td>投入重量に対する製品重量の割合。プレス工程では抜き型形状・取り数によって変化する。この設定が材料費の最大変動要因になる</td></tr>
-        <tr><td><strong>スクラップ単価</strong></td><td>廃材の売却単価。材質・市況によって変動する</td></tr>
-        <tr><td><strong>スクラップ控除</strong></td><td>廃材売却益として材料費から差し引く。利益は乗せない</td></tr>
+        <tr><td class="td-key"><strong>ワークサイズ</strong></td><td>プレス成形に使用する素材の外形寸法（縦×横）</td></tr>
+        <tr><td class="td-key"><strong>板厚</strong></td><td>材料の厚み。鉄板・アルミ板など素材ごとに設定</td></tr>
+        <tr><td class="td-key"><strong>材料密度</strong></td><td>素材固有の密度（鉄：7.85 g/cm³、アルミ：2.70 g/cm³ など）</td></tr>
+        <tr><td class="td-key"><strong>歩留率</strong></td><td>投入重量に対する製品重量の割合。プレス工程では抜き型形状・取り数によって変化する。この設定が材料費の最大変動要因になる</td></tr>
+        <tr><td class="td-key"><strong>スクラップ単価</strong></td><td>廃材の売却単価。材質・市況によって変動する</td></tr>
+        <tr><td class="td-key"><strong>スクラップ控除</strong></td><td>廃材売却益として材料費から差し引く。利益は乗せない</td></tr>
       </tbody>
     </table>
   </div>
@@ -952,14 +955,14 @@ footer{text-align:center;padding:32px 48px;font-size:12px;color:var(--sub);borde
 
   <div class="svg-wrap">
     <svg style="width:100%;max-width:560px;display:block;" viewBox="0 0 560 56" xmlns="http://www.w3.org/2000/svg">
-      <defs><marker id="apf" markerWidth="7" markerHeight="7" refX="5" refY="3.5" orient="auto"><path d="M0,1 L7,3.5 L0,6Z" fill="#F5A623"/></marker></defs>
-      <rect x="8"   y="8" width="100" height="38" rx="3" fill="#1A2535" stroke="#2A3A50"/><text x="58" y="31" text-anchor="middle" fill="#9DAFC4" font-size="12" font-family="sans-serif" font-weight="600">図面</text>
-      <line x1="110" y1="27" x2="132" y2="27" stroke="#F5A623" stroke-width="1.5" marker-end="url(#apf)"/>
-      <rect x="135" y="8" width="120" height="38" rx="3" fill="#1A2535" stroke="#2A3A50"/><text x="195" y="31" text-anchor="middle" fill="#9DAFC4" font-size="12" font-family="sans-serif" font-weight="600">工程設計</text>
-      <line x1="257" y1="27" x2="279" y2="27" stroke="#F5A623" stroke-width="1.5" marker-end="url(#apf)"/>
-      <rect x="282" y="8" width="120" height="38" rx="3" fill="#1E3050" stroke="#F5A623" stroke-width="1.5"/><text x="342" y="31" text-anchor="middle" fill="#F5A623" font-size="12" font-family="sans-serif" font-weight="700">工程申告書</text>
-      <line x1="404" y1="27" x2="426" y2="27" stroke="#F5A623" stroke-width="1.5" marker-end="url(#apf)"/>
-      <rect x="429" y="8" width="120" height="38" rx="3" fill="#1E3050" stroke="#F5A623" stroke-width="1.5"/><text x="489" y="31" text-anchor="middle" fill="#F5A623" font-size="12" font-family="sans-serif" font-weight="700">売価設定</text>
+      <defs><marker id="apf" markerWidth="7" markerHeight="7" refX="5" refY="3.5" orient="auto"><path d="M0,1 L7,3.5 L0,6Z" fill="#4A7FA5"/></marker></defs>
+      <rect x="8"   y="8" width="100" height="38" rx="3" fill="#FFFFFF" stroke="#C8D6E3"/><text x="58" y="31" text-anchor="middle" fill="#4A5D72" font-size="12" font-family="sans-serif" font-weight="600">図面</text>
+      <line x1="110" y1="27" x2="132" y2="27" stroke="#4A7FA5" stroke-width="1.5" marker-end="url(#apf)"/>
+      <rect x="135" y="8" width="120" height="38" rx="3" fill="#FFFFFF" stroke="#C8D6E3"/><text x="195" y="31" text-anchor="middle" fill="#4A5D72" font-size="12" font-family="sans-serif" font-weight="600">工程設計</text>
+      <line x1="257" y1="27" x2="279" y2="27" stroke="#4A7FA5" stroke-width="1.5" marker-end="url(#apf)"/>
+      <rect x="282" y="8" width="120" height="38" rx="3" fill="#EEF5FB" stroke="#4A7FA5" stroke-width="1.5"/><text x="342" y="31" text-anchor="middle" fill="#4A7FA5" font-size="12" font-family="sans-serif" font-weight="700">工程申告書</text>
+      <line x1="404" y1="27" x2="426" y2="27" stroke="#4A7FA5" stroke-width="1.5" marker-end="url(#apf)"/>
+      <rect x="429" y="8" width="120" height="38" rx="3" fill="#EEF5FB" stroke="#4A7FA5" stroke-width="1.5"/><text x="489" y="31" text-anchor="middle" fill="#4A7FA5" font-size="12" font-family="sans-serif" font-weight="700">売価設定</text>
     </svg>
   </div>
 
@@ -975,10 +978,10 @@ footer{text-align:center;padding:32px 48px;font-size:12px;color:var(--sub);borde
     <table>
       <thead><tr><th>パラメータ</th><th>例</th><th>影響</th></tr></thead>
       <tbody>
-        <tr><td><strong>設備トン数</strong></td><td>300t / 600t / 1000t</td><td>トン数が大きいほどレートが高くなる</td></tr>
-        <tr><td><strong>設備種類（工法）</strong></td><td>順送 / トランスファー / 単発</td><td>工法によってレートが異なる</td></tr>
-        <tr><td><strong>企画台数</strong></td><td>月間台数</td><td>台数が多いほど1台当たりレートは下がる</td></tr>
-        <tr><td><strong>工程数</strong></td><td>抜き・曲げ・絞り・トリムなど</td><td>工程数が多いほど加工費が積み上がる</td></tr>
+        <tr><td class="td-key"><strong>設備トン数</strong></td><td>300t / 600t / 1000t</td><td>トン数が大きいほどレートが高くなる</td></tr>
+        <tr><td class="td-key"><strong>設備種類（工法）</strong></td><td>順送 / トランスファー / 単発</td><td>工法によってレートが異なる</td></tr>
+        <tr><td class="td-key"><strong>企画台数</strong></td><td>月間台数</td><td>台数が多いほど1台当たりレートは下がる</td></tr>
+        <tr><td class="td-key"><strong>工程数</strong></td><td>抜き・曲げ・絞り・トリムなど</td><td>工程数が多いほど加工費が積み上がる</td></tr>
       </tbody>
     </table>
   </div>
@@ -1029,10 +1032,10 @@ footer{text-align:center;padding:32px 48px;font-size:12px;color:var(--sub);borde
     <table>
       <thead><tr><th>型費構成要素</th><th>内容</th><th>難易度との関係</th></tr></thead>
       <tbody>
-        <tr><td><strong>金型</strong></td><td>プレス金型・射出成形型など。型費の大半を占める</td><td>工程数・カム/スライド機構の有無で大きく変動する</td></tr>
-        <tr><td><strong>専用治具</strong></td><td>溶接治具・組付治具など工程専用の設備</td><td>工程構成・製品精度要求によって変動する</td></tr>
-        <tr><td><strong>専用箱</strong></td><td>部品専用の梱包箱。初回製作費を償却</td><td>製品サイズ・形状による</td></tr>
-        <tr><td><strong>検査治具</strong></td><td>顧客に請求できないケースが多く、内製コストとして吸収する場合がある</td><td>精度要求・検査項目数によって変動する</td></tr>
+        <tr><td class="td-key"><strong>金型</strong></td><td>プレス金型・射出成形型など。型費の大半を占める</td><td>工程数・カム/スライド機構の有無で大きく変動する</td></tr>
+        <tr><td class="td-key"><strong>専用治具</strong></td><td>溶接治具・組付治具など工程専用の設備</td><td>工程構成・製品精度要求によって変動する</td></tr>
+        <tr><td class="td-key"><strong>専用箱</strong></td><td>部品専用の梱包箱。初回製作費を償却</td><td>製品サイズ・形状による</td></tr>
+        <tr><td class="td-key"><strong>検査治具</strong></td><td>顧客に請求できないケースが多く、内製コストとして吸収する場合がある</td><td>精度要求・検査項目数によって変動する</td></tr>
       </tbody>
     </table>
   </div>
@@ -1100,11 +1103,11 @@ footer{text-align:center;padding:32px 48px;font-size:12px;color:var(--sub);borde
     <table>
       <thead><tr><th>フェーズ</th><th>目的</th><th>精度感</th></tr></thead>
       <tbody>
-        <tr><td><strong>構想見積</strong></td><td>開発初期の概算価格提示。受注判断の材料</td><td>概算（±20〜30%程度）</td></tr>
-        <tr><td><strong>試作見積</strong></td><td>試作部品の価格提示。工程・仕様が確定前</td><td>中精度（±10〜20%）</td></tr>
-        <tr><td><strong>量産見積</strong></td><td>量産価格の確定。工程・BOM・市況が確定後</td><td>高精度（量産価格の確定）</td></tr>
-        <tr><td><strong>設変見積</strong></td><td>設計変更に伴う価格差額の算出・請求</td><td>変更部分のみ算出</td></tr>
-        <tr><td><strong>価格改定</strong></td><td>市況変動・合理化・交渉による価格の見直し</td><td>改定額の根拠算出</td></tr>
+        <tr><td class="td-key"><strong>構想見積</strong></td><td>開発初期の概算価格提示。受注判断の材料</td><td>概算（±20〜30%程度）</td></tr>
+        <tr><td class="td-key"><strong>試作見積</strong></td><td>試作部品の価格提示。工程・仕様が確定前</td><td>中精度（±10〜20%）</td></tr>
+        <tr><td class="td-key"><strong>量産見積</strong></td><td>量産価格の確定。工程・BOM・市況が確定後</td><td>高精度（量産価格の確定）</td></tr>
+        <tr><td class="td-key"><strong>設変見積</strong></td><td>設計変更に伴う価格差額の算出・請求</td><td>変更部分のみ算出</td></tr>
+        <tr><td class="td-key"><strong>価格改定</strong></td><td>市況変動・合理化・交渉による価格の見直し</td><td>改定額の根拠算出</td></tr>
       </tbody>
     </table>
   </div>
@@ -1119,11 +1122,11 @@ footer{text-align:center;padding:32px 48px;font-size:12px;color:var(--sub);borde
     <table>
       <thead><tr><th>管理項目</th><th>内容</th></tr></thead>
       <tbody>
-        <tr><td><strong>見積版</strong></td><td>見積書そのものの版番号（Rev.1, Rev.2…）</td></tr>
-        <tr><td><strong>図面版</strong></td><td>使用した設計図の版番号</td></tr>
-        <tr><td><strong>BOM版</strong></td><td>使用した部品構成表の版番号</td></tr>
-        <tr><td><strong>工程版</strong></td><td>使用した工程申告書の版番号</td></tr>
-        <tr><td><strong>市況版</strong></td><td>使用した市況データ（材料単価・レート）の適用時期</td></tr>
+        <tr><td class="td-key"><strong>見積版</strong></td><td>見積書そのものの版番号（Rev.1, Rev.2…）</td></tr>
+        <tr><td class="td-key"><strong>図面版</strong></td><td>使用した設計図の版番号</td></tr>
+        <tr><td class="td-key"><strong>BOM版</strong></td><td>使用した部品構成表の版番号</td></tr>
+        <tr><td class="td-key"><strong>工程版</strong></td><td>使用した工程申告書の版番号</td></tr>
+        <tr><td class="td-key"><strong>市況版</strong></td><td>使用した市況データ（材料単価・レート）の適用時期</td></tr>
       </tbody>
     </table>
   </div>
@@ -1141,12 +1144,12 @@ footer{text-align:center;padding:32px 48px;font-size:12px;color:var(--sub);borde
     <table>
       <thead><tr><th>差分要因</th><th>内容</th></tr></thead>
       <tbody>
-        <tr><td><strong>設変影響</strong></td><td>設計変更（形状・材質・工程変更）による原価変動</td></tr>
-        <tr><td><strong>BOM影響</strong></td><td>部品構成変更による購入費・材料費変動</td></tr>
-        <tr><td><strong>工程影響</strong></td><td>工程追加・削除・CT変化による加工費変動</td></tr>
-        <tr><td><strong>市況影響</strong></td><td>材料単価・エネルギーコスト・外注費の市況変動</td></tr>
-        <tr><td><strong>合理化影響</strong></td><td>工程改善・材料最適化による原価低減</td></tr>
-        <tr><td><strong>営業戦略影響</strong></td><td>チャレンジ価格・安全価格などの戦略的価格変更</td></tr>
+        <tr><td class="td-key"><strong>設変影響</strong></td><td>設計変更（形状・材質・工程変更）による原価変動</td></tr>
+        <tr><td class="td-key"><strong>BOM影響</strong></td><td>部品構成変更による購入費・材料費変動</td></tr>
+        <tr><td class="td-key"><strong>工程影響</strong></td><td>工程追加・削除・CT変化による加工費変動</td></tr>
+        <tr><td class="td-key"><strong>市況影響</strong></td><td>材料単価・エネルギーコスト・外注費の市況変動</td></tr>
+        <tr><td class="td-key"><strong>合理化影響</strong></td><td>工程改善・材料最適化による原価低減</td></tr>
+        <tr><td class="td-key"><strong>営業戦略影響</strong></td><td>チャレンジ価格・安全価格などの戦略的価格変更</td></tr>
       </tbody>
     </table>
   </div>
@@ -1203,19 +1206,19 @@ footer{text-align:center;padding:32px 48px;font-size:12px;color:var(--sub);borde
   </div>
   <div class="svg-wrap">
     <svg style="width:100%;max-width:720px;display:block;" viewBox="0 0 720 80" xmlns="http://www.w3.org/2000/svg">
-      <defs><marker id="a6" markerWidth="7" markerHeight="7" refX="5" refY="3.5" orient="auto"><path d="M0,1 L7,3.5 L0,6Z" fill="#9DAFC4"/></marker>
-      <marker id="a6r" markerWidth="7" markerHeight="7" refX="5" refY="3.5" orient="auto"><path d="M0,1 L7,3.5 L0,6Z" fill="#F5A623"/></marker></defs>
-      <rect x="8"   y="18" width="110" height="40" rx="3" fill="#1A2535" stroke="#2A3A50"/><text x="63"  y="43" text-anchor="middle" fill="#9DAFC4" font-size="12" font-family="sans-serif" font-weight="600">見積提出</text>
-      <line x1="120" y1="38" x2="144" y2="38" stroke="#9DAFC4" stroke-width="1.5" marker-end="url(#a6)"/>
-      <rect x="147" y="18" width="110" height="40" rx="3" fill="#1A2535" stroke="#2A3A50"/><text x="202" y="43" text-anchor="middle" fill="#9DAFC4" font-size="12" font-family="sans-serif" font-weight="600">顧客査定</text>
-      <line x1="259" y1="38" x2="283" y2="38" stroke="#9DAFC4" stroke-width="1.5" marker-end="url(#a6)"/>
-      <rect x="286" y="18" width="110" height="40" rx="3" fill="#1A2535" stroke="#2A3A50"/><text x="341" y="43" text-anchor="middle" fill="#9DAFC4" font-size="12" font-family="sans-serif" font-weight="600">差異確認</text>
-      <line x1="398" y1="38" x2="422" y2="38" stroke="#9DAFC4" stroke-width="1.5" marker-end="url(#a6)"/>
-      <rect x="425" y="18" width="130" height="40" rx="3" fill="#1A2535" stroke="#2A3A50"/><text x="490" y="43" text-anchor="middle" fill="#9DAFC4" font-size="12" font-family="sans-serif" font-weight="600">根拠説明・交渉</text>
-      <line x1="557" y1="38" x2="581" y2="38" stroke="#F5A623" stroke-width="1.5" marker-end="url(#a6r)"/>
-      <rect x="584" y="10" width="128" height="56" rx="3" fill="#243044" stroke="#F5A623" stroke-width="1.5"/>
-      <text x="648" y="36" text-anchor="middle" fill="#F5A623" font-size="11" font-family="sans-serif">条件次第で</text>
-      <text x="648" y="52" text-anchor="middle" fill="#F5A623" font-size="13" font-family="sans-serif" font-weight="700">再見積</text>
+      <defs><marker id="a6" markerWidth="7" markerHeight="7" refX="5" refY="3.5" orient="auto"><path d="M0,1 L7,3.5 L0,6Z" fill="#4A5D72"/></marker>
+      <marker id="a6r" markerWidth="7" markerHeight="7" refX="5" refY="3.5" orient="auto"><path d="M0,1 L7,3.5 L0,6Z" fill="#4A7FA5"/></marker></defs>
+      <rect x="8"   y="18" width="110" height="40" rx="3" fill="#FFFFFF" stroke="#C8D6E3"/><text x="63"  y="43" text-anchor="middle" fill="#4A5D72" font-size="12" font-family="sans-serif" font-weight="600">見積提出</text>
+      <line x1="120" y1="38" x2="144" y2="38" stroke="#4A5D72" stroke-width="1.5" marker-end="url(#a6)"/>
+      <rect x="147" y="18" width="110" height="40" rx="3" fill="#FFFFFF" stroke="#C8D6E3"/><text x="202" y="43" text-anchor="middle" fill="#4A5D72" font-size="12" font-family="sans-serif" font-weight="600">顧客査定</text>
+      <line x1="259" y1="38" x2="283" y2="38" stroke="#4A5D72" stroke-width="1.5" marker-end="url(#a6)"/>
+      <rect x="286" y="18" width="110" height="40" rx="3" fill="#FFFFFF" stroke="#C8D6E3"/><text x="341" y="43" text-anchor="middle" fill="#4A5D72" font-size="12" font-family="sans-serif" font-weight="600">差異確認</text>
+      <line x1="398" y1="38" x2="422" y2="38" stroke="#4A5D72" stroke-width="1.5" marker-end="url(#a6)"/>
+      <rect x="425" y="18" width="130" height="40" rx="3" fill="#FFFFFF" stroke="#C8D6E3"/><text x="490" y="43" text-anchor="middle" fill="#4A5D72" font-size="12" font-family="sans-serif" font-weight="600">根拠説明・交渉</text>
+      <line x1="557" y1="38" x2="581" y2="38" stroke="#4A7FA5" stroke-width="1.5" marker-end="url(#a6r)"/>
+      <rect x="584" y="10" width="128" height="56" rx="3" fill="#E2EAF2" stroke="#4A7FA5" stroke-width="1.5"/>
+      <text x="648" y="36" text-anchor="middle" fill="#4A7FA5" font-size="11" font-family="sans-serif">条件次第で</text>
+      <text x="648" y="52" text-anchor="middle" fill="#4A7FA5" font-size="13" font-family="sans-serif" font-weight="700">再見積</text>
     </svg>
   </div>
   <div class="callout">
@@ -1232,9 +1235,9 @@ footer{text-align:center;padding:32px 48px;font-size:12px;color:var(--sub);borde
     <table>
       <thead><tr><th>決裁層</th><th>対象</th><th>確認事項</th></tr></thead>
       <tbody>
-        <tr><td><strong>担当営業</strong></td><td>標準案件</td><td>計算根拠・前提の確認</td></tr>
-        <tr><td><strong>部長</strong></td><td>金額・戦略上重要な案件</td><td>利益水準・戦略的妥当性・チャレンジ価格の承認</td></tr>
-        <tr><td><strong>役員</strong></td><td>大型案件・採算割れ案件</td><td>経営判断・補填計画・将来収益シナリオの承認</td></tr>
+        <tr><td class="td-key"><strong>担当営業</strong></td><td>標準案件</td><td>計算根拠・前提の確認</td></tr>
+        <tr><td class="td-key"><strong>部長</strong></td><td>金額・戦略上重要な案件</td><td>利益水準・戦略的妥当性・チャレンジ価格の承認</td></tr>
+        <tr><td class="td-key"><strong>役員</strong></td><td>大型案件・採算割れ案件</td><td>経営判断・補填計画・将来収益シナリオの承認</td></tr>
       </tbody>
     </table>
   </div>
