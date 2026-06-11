@@ -16,58 +16,45 @@
 html{scroll-behavior:smooth;}
 body{background:var(--navy);color:var(--text);font-family:'Inter','Hiragino Kaku Gothic ProN','Noto Sans JP',sans-serif;font-size:15px;line-height:1.8;-webkit-font-smoothing:antialiased;}
 
-/* ── TAB BAR ── */
+/* TAB BAR */
 .tabbar{position:sticky;top:0;z-index:300;background:rgba(15,25,35,.97);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);display:flex;align-items:stretch;height:52px;}
 .tab-btn{flex:1;max-width:280px;border:none;background:none;color:var(--sub);font-size:13px;font-weight:700;letter-spacing:.08em;cursor:pointer;border-bottom:3px solid transparent;transition:all .2s;padding:0 20px;}
 .tab-btn.active{color:var(--amber);border-bottom-color:var(--amber);}
 .tab-btn:hover:not(.active){color:var(--muted);}
 
-/* ── TAB PANELS ── */
+/* TAB PANELS */
 .tab-panel{display:none;}
 .tab-panel.active{display:block;}
 
-/* ── LAYOUT: sidebar + main ── */
-.page-layout{display:flex;align-items:flex-start;min-height:100vh;}
+/* LAYOUT */
+.page-layout{display:grid;grid-template-columns:var(--sidebar-w) 1fr;min-height:100vh;align-items:start;}
 
-/* ── SIDEBAR ── */
+/* SIDEBAR */
 .sidebar{
-  width:var(--sidebar-w);
-  flex-shrink:0;
-  position:sticky;
-  top:52px;
-  overflow-y:visible;
-  background:var(--card2);
-  border-right:1px solid var(--border);
-  padding:20px 0;
+  width:var(--sidebar-w);flex-shrink:0;
+  position:sticky;top:52px;
+  max-height:calc(100vh - 52px);overflow-y:auto;
+  background:var(--card2);border-right:1px solid var(--border);
+  padding:20px 0 40px;
+  scrollbar-width:thin;scrollbar-color:var(--border) transparent;
 }
 .sidebar::-webkit-scrollbar{width:4px;}
 .sidebar::-webkit-scrollbar-track{background:transparent;}
 .sidebar::-webkit-scrollbar-thumb{background:var(--border);border-radius:2px;}
-
 .sidebar-group{margin-bottom:4px;}
-.sidebar-group-label{
-  font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;
-  color:var(--sub);padding:12px 20px 6px;display:block;
-}
-.sidebar a{
-  display:block;font-size:12px;font-weight:500;
-  color:var(--sub);text-decoration:none;
-  padding:6px 20px 6px 24px;
-  border-left:2px solid transparent;
-  transition:all .15s;
-  line-height:1.5;
-}
+.sidebar-group-label{font-size:10px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--sub);padding:10px 20px 4px;display:block;}
+.sidebar a{display:block;font-size:13px;font-weight:500;color:var(--sub);text-decoration:none;padding:8px 20px 8px 22px;border-left:2px solid transparent;transition:all .15s;line-height:1.5;}
 .sidebar a:hover{color:var(--muted);background:rgba(255,255,255,.03);}
 .sidebar a.active{color:var(--amber);border-left-color:var(--amber);background:rgba(245,166,35,.06);}
 
-/* ── MAIN CONTENT ── */
-.main-content{flex:1;min-width:0;}
+/* MAIN CONTENT */
+.main-content{min-width:0;overflow:hidden;}
 
-/* ── HERO ── */
+/* HERO */
 .hero{position:relative;min-height:72vh;display:flex;flex-direction:column;justify-content:center;padding:72px 48px 56px;overflow:hidden;}
 .hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 55% 40%,#1B2F48 0%,var(--navy) 70%);}
 .hero-grid{position:absolute;inset:0;opacity:.05;background-image:linear-gradient(var(--amber) 1px,transparent 1px),linear-gradient(90deg,var(--amber) 1px,transparent 1px);background-size:48px 48px;}
-.hero-inner{position:relative;max-width:720px;width:100%;}
+.hero-inner{position:relative;max-width:720px;width:100%;margin:0 auto;}
 .eyebrow{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--amber);border:1px solid var(--amber);padding:4px 12px;border-radius:2px;margin-bottom:24px;}
 .hero h1{font-size:clamp(22px,3.5vw,38px);font-weight:700;line-height:1.3;margin-bottom:18px;}
 .hero h1 em{color:var(--amber);font-style:normal;}
@@ -75,8 +62,8 @@ body{background:var(--navy);color:var(--text);font-family:'Inter','Hiragino Kaku
 .hero-lead p{margin-bottom:10px;}
 .hero-lead p:last-child{margin-bottom:0;}
 
-/* ── SECTION ── */
-.section{max-width:760px;padding:60px 48px;border-bottom:1px solid var(--border);}
+/* SECTION */
+.section{padding:56px 40px;border-bottom:1px solid var(--border);}
 .section:last-of-type{border-bottom:none;}
 .sec-label{font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--amber);margin-bottom:6px;}
 .sec-title{font-size:clamp(18px,2.5vw,23px);font-weight:700;line-height:1.35;margin-bottom:18px;}
@@ -86,7 +73,7 @@ body{background:var(--navy);color:var(--text);font-family:'Inter','Hiragino Kaku
 .sec-body p:last-child{margin-bottom:0;}
 .sec-body strong{color:var(--text);}
 
-/* ── CARDS ── */
+/* CARDS */
 .card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin:16px 0;}
 .card{background:var(--card);border:1px solid var(--border);border-radius:6px;padding:16px;}
 .card.hi{border-color:var(--amber);}
@@ -94,8 +81,8 @@ body{background:var(--navy);color:var(--text);font-family:'Inter','Hiragino Kaku
 .card-body{font-size:12px;color:var(--muted);line-height:1.75;}
 .card-body strong{color:var(--text);}
 
-/* ── TABLE ── */
-.tbl-wrap{overflow-x:auto;margin:16px 0;}
+/* TABLE */
+.tbl-wrap{overflow-x:auto;margin:16px 0;-webkit-overflow-scrolling:touch;}
 table{width:100%;border-collapse:collapse;font-size:13px;}
 th{background:var(--light);color:var(--amber);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:10px 14px;text-align:left;border-bottom:2px solid var(--amber);}
 td{padding:10px 14px;border-bottom:1px solid var(--border);color:var(--muted);vertical-align:top;line-height:1.75;}
@@ -103,29 +90,29 @@ tr:last-child td{border-bottom:none;}
 td strong{color:var(--text);}
 tr:hover td{background:var(--card2);}
 
-/* ── SVG ── */
-.svg-wrap{margin:20px 0;overflow-x:auto;}
-.svg-wrap svg{display:block;max-width:100%;}
+/* SVG */
+.svg-wrap{margin:20px 0;overflow-x:auto;max-width:100%;-webkit-overflow-scrolling:touch;}
+.svg-wrap svg{display:block;max-width:100%;height:auto;}
 
-/* ── FORMULA ── */
-.formula{background:var(--card2);border:1px solid var(--border);border-left:3px solid var(--amber);border-radius:4px;padding:14px 18px;font-size:13px;color:var(--text);margin:14px 0;line-height:2.2;}
+/* FORMULA */
+.formula{background:var(--card2);border:1px solid var(--border);border-left:3px solid var(--amber);border-radius:4px;padding:14px 18px;font-size:13px;color:var(--text);margin:14px 0;line-height:2.2;word-break:break-all;}
 .formula .label{font-size:11px;color:var(--amber);font-weight:700;letter-spacing:.1em;display:block;margin-bottom:6px;}
 .formula .val{color:var(--green);}
 .formula .eq{color:var(--muted);}
 
-/* ── CALLOUT ── */
+/* CALLOUT */
 .callout{background:var(--card);border:1px solid var(--amber);border-radius:6px;padding:20px 24px;margin:20px 0;}
 .callout p{font-size:14px;color:var(--muted);line-height:1.9;margin-bottom:10px;}
 .callout p:last-child{margin-bottom:0;}
 .callout strong{color:var(--text);}
 
-/* ── TAGS ── */
+/* TAGS */
 .tags{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0;}
 .tag{font-size:12px;padding:4px 12px;border-radius:2px;background:var(--light);color:var(--muted);border:1px solid var(--border);}
 .tag.amber{border-color:var(--amber);color:var(--amber);}
 .tag.green{border-color:var(--green);color:var(--green);}
 
-/* ── BA ── */
+/* BA */
 .ba-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:16px 0;}
 .ba-card{background:var(--card);border-radius:6px;padding:18px;}
 .ba-card.before{border-top:3px solid var(--red);}
@@ -139,57 +126,40 @@ tr:hover td{background:var(--card2);}
 .ba-card.before .ba-list li::before{content:'—';color:var(--red);flex-shrink:0;}
 .ba-card.after .ba-list li::before{content:'✓';color:var(--green);flex-shrink:0;}
 
-/* ── REVEAL ── */
+/* REVEAL */
 .reveal{opacity:0;transform:translateY(16px);transition:opacity .5s ease,transform .5s ease;}
 .reveal.visible{opacity:1;transform:none;}
 
-footer{text-align:center;padding:32px 48px;font-size:12px;color:var(--sub);border-top:1px solid var(--border);}
-
-/* ── MOBILE MENU TOGGLE ── */
-.mob-menu-btn{
-  display:none;
-  width:100%;background:var(--card2);border:none;border-bottom:1px solid var(--border);
-  color:var(--amber);font-size:12px;font-weight:700;letter-spacing:.1em;
-  padding:10px 20px;text-align:left;cursor:pointer;
-}
+/* MOBILE MENU */
+.mob-menu-btn{display:none;width:100%;background:var(--card2);border:none;border-bottom:1px solid var(--border);color:var(--amber);font-size:12px;font-weight:700;letter-spacing:.1em;padding:10px 20px;text-align:left;cursor:pointer;}
 .mob-menu-btn::after{content:' ▾';}
 .mob-menu-btn.open::after{content:' ▴';}
-.mob-sidebar-drawer{
-  display:none;background:var(--card2);border-bottom:2px solid var(--border);
-  padding:8px 0 12px;
-}
+.mob-sidebar-drawer{display:none;background:var(--card2);border-bottom:2px solid var(--border);padding:8px 0 12px;}
 .mob-sidebar-drawer.open{display:block;}
 .mob-group{padding:6px 14px 4px;border-top:1px solid var(--border);margin-top:2px;}
-.mob-group-label{
-  display:block;font-size:10px;font-weight:700;letter-spacing:.15em;
-  text-transform:uppercase;color:var(--sub);margin-bottom:4px;padding-top:4px;
-}
+.mob-group-label{display:block;font-size:10px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--sub);margin-bottom:4px;padding-top:4px;}
 .mob-group-links{display:flex;flex-wrap:wrap;gap:4px 0;}
-.mob-sidebar-drawer a{
-  font-size:12px;color:var(--sub);text-decoration:none;padding:3px 10px;
-  border-radius:2px;
-}
+.mob-sidebar-drawer a{font-size:12px;color:var(--sub);text-decoration:none;padding:3px 10px;border-radius:2px;}
 .mob-sidebar-drawer a:hover{color:var(--amber);}
 
-/* ── SVG スマホ横スクロール ── */
-.svg-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;}
+footer{text-align:center;padding:32px 48px;font-size:12px;color:var(--sub);border-top:1px solid var(--border);}
 
-/* ── RESPONSIVE ── */
+/* RESPONSIVE */
 @media(max-width:768px){
   :root{--sidebar-w:200px;}
   .section{padding:44px 20px;}
-  .hero{padding:52px 20px 36px;}
+  .hero{padding:52px 36px 36px;}
   footer{padding:28px 20px;}
 }
 @media(max-width:640px){
   .sidebar{display:none;}
   .mob-menu-btn{display:block;}
-  .page-layout{display:block;}
+  .page-layout{display:block;grid-template-columns:1fr;}
   .main-content{width:100%;}
-  .ba-grid{grid-template-columns:1fr;}
-  .card-grid{grid-template-columns:1fr 1fr;}
   .section{padding:36px 16px;}
   .hero{padding:44px 16px 32px;}
+  .ba-grid{grid-template-columns:1fr;}
+  .card-grid{grid-template-columns:1fr 1fr;}
   .formula{font-size:12px;padding:12px 14px;line-height:2;}
   th,td{padding:8px 10px;font-size:12px;}
 }
@@ -208,8 +178,6 @@ footer{text-align:center;padding:32px 48px;font-size:12px;color:var(--sub);borde
 
 <!-- ══════════ TAB: 全体像 ══════════ -->
 <div class="tab-panel active" id="panel-overview">
-<div class="page-layout">
-
 <!-- MOBILE MENU: 全体像 -->
 <button class="mob-menu-btn" id="mob-btn-overview" onclick="toggleMobMenu('overview')">目次を開く</button>
 <div class="mob-sidebar-drawer" id="mob-drawer-overview">
@@ -234,68 +202,24 @@ footer{text-align:center;padding:32px 48px;font-size:12px;color:var(--sub);borde
   </div></div>
 </div>
 
+<div class="page-layout">
+
 <!-- SIDEBAR: 全体像 -->
 <nav class="sidebar" id="sidebar-overview">
-  <div class="sidebar-group">
-    <span class="sidebar-group-label">はじめに</span>
-    <a href="javascript:void(0)" onclick="jumpTo('intro');return false;">営業の仕事とは</a>
-  </div>
-  <div class="sidebar-group">
-    <span class="sidebar-group-label">01 全体像</span>
-    <a href="javascript:void(0)" onclick="jumpTo('structure');return false;">業務サイクル</a>
-    <a href="javascript:void(0)" onclick="jumpTo('structure');return false;">管理階層</a>
-    <a href="javascript:void(0)" onclick="jumpTo('structure');return false;">時間軸</a>
-  </div>
-  <div class="sidebar-group">
-    <span class="sidebar-group-label">02 業務特性</span>
-    <a href="javascript:void(0)" onclick="jumpTo('traits');return false;">7つの特性</a>
-  </div>
-  <div class="sidebar-group">
-    <span class="sidebar-group-label">03 営業戦略</span>
-    <a href="javascript:void(0)" onclick="jumpTo('strategy');return false;">モデル情報管理</a>
-    <a href="javascript:void(0)" onclick="jumpTo('strategy');return false;">売上予測</a>
-    <a href="javascript:void(0)" onclick="jumpTo('strategy');return false;">ギャップ分析</a>
-    <a href="javascript:void(0)" onclick="jumpTo('strategy');return false;">補填戦略</a>
-  </div>
-  <div class="sidebar-group">
-    <span class="sidebar-group-label">04 受注戦略</span>
-    <a href="javascript:void(0)" onclick="jumpTo('order');return false;">RFQ分析</a>
-    <a href="javascript:void(0)" onclick="jumpTo('order');return false;">材料・加工・型戦略</a>
-    <a href="javascript:void(0)" onclick="jumpTo('order');return false;">価格戦略</a>
-    <a href="javascript:void(0)" onclick="jumpTo('order');return false;">利益シミュレーション</a>
-  </div>
-  <div class="sidebar-group">
-    <span class="sidebar-group-label">05 見積業務</span>
-    <a href="javascript:void(0)" onclick="jumpTo('q-link');return false;">→ 見積詳細タブへ</a>
-  </div>
-  <div class="sidebar-group">
-    <span class="sidebar-group-label">06 価格運営</span>
-    <a href="javascript:void(0)" onclick="jumpTo('price');return false;">設変・合理化・改定</a>
-  </div>
-  <div class="sidebar-group">
-    <span class="sidebar-group-label">07 構造的課題</span>
-    <a href="javascript:void(0)" onclick="jumpTo('issues');return false;">4つの課題</a>
-  </div>
-  <div class="sidebar-group">
-    <span class="sidebar-group-label">08 目指す姿</span>
-    <a href="javascript:void(0)" onclick="jumpTo('vision');return false;">収益プラットフォーム</a>
-  </div>
-  <div class="sidebar-group">
-    <span class="sidebar-group-label">09 DX</span>
-    <a href="javascript:void(0)" onclick="jumpTo('dx');return false;">5つのアプローチ</a>
-  </div>
-  <div class="sidebar-group">
-    <span class="sidebar-group-label">10 AI活用</span>
-    <a href="javascript:void(0)" onclick="jumpTo('ai');return false;">6領域の活用</a>
-  </div>
-  <div class="sidebar-group">
-    <span class="sidebar-group-label">11 変革</span>
-    <a href="javascript:void(0)" onclick="jumpTo('ba');return false;">Before / After</a>
-  </div>
-  <div class="sidebar-group">
-    <span class="sidebar-group-label">12 まとめ</span>
-    <a href="javascript:void(0)" onclick="jumpTo('summary');return false;">まとめ</a>
-  </div>
+  <div style="padding:14px 20px 10px;font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--sub);border-bottom:1px solid var(--border);margin-bottom:6px;">目次</div>
+  <a href="javascript:void(0)" onclick="jumpTo('intro');return false;">はじめに</a>
+  <a href="javascript:void(0)" onclick="jumpTo('structure');return false;">01 全体像</a>
+  <a href="javascript:void(0)" onclick="jumpTo('traits');return false;">02 業務特性</a>
+  <a href="javascript:void(0)" onclick="jumpTo('strategy');return false;">03 営業戦略</a>
+  <a href="javascript:void(0)" onclick="jumpTo('order');return false;">04 受注戦略</a>
+  <a href="javascript:void(0)" onclick="jumpTo('q-link');return false;">05 見積業務</a>
+  <a href="javascript:void(0)" onclick="jumpTo('price');return false;">06 価格運営</a>
+  <a href="javascript:void(0)" onclick="jumpTo('issues');return false;">07 構造的課題</a>
+  <a href="javascript:void(0)" onclick="jumpTo('vision');return false;">08 目指す姿</a>
+  <a href="javascript:void(0)" onclick="jumpTo('dx');return false;">09 DX</a>
+  <a href="javascript:void(0)" onclick="jumpTo('ai');return false;">10 AI活用</a>
+  <a href="javascript:void(0)" onclick="jumpTo('ba');return false;">11 変革</a>
+  <a href="javascript:void(0)" onclick="jumpTo('summary');return false;">12 まとめ</a>
 </nav>
 
 <!-- MAIN -->
@@ -749,8 +673,6 @@ footer{text-align:center;padding:32px 48px;font-size:12px;color:var(--sub);borde
 
 <!-- ══════════ TAB: 見積詳細 ══════════ -->
 <div class="tab-panel" id="panel-quotation">
-<div class="page-layout">
-
 <!-- MOBILE MENU: 見積詳細 -->
 <button class="mob-menu-btn" id="mob-btn-quotation" onclick="toggleMobMenu('quotation')">目次を開く</button>
 <div class="mob-sidebar-drawer" id="mob-drawer-quotation">
@@ -784,8 +706,11 @@ footer{text-align:center;padding:32px 48px;font-size:12px;color:var(--sub);borde
   </div></div>
 </div>
 
+<div class="page-layout">
+
 <!-- SIDEBAR: 見積詳細 -->
 <nav class="sidebar" id="sidebar-quotation">
+  <div style="padding:14px 20px 10px;font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--sub);border-bottom:1px solid var(--border);margin-bottom:6px;">目次</div>
   <div class="sidebar-group">
     <span class="sidebar-group-label">見積業務 概要</span>
     <a href="javascript:void(0)" onclick="jumpTo('q-intro2');return false;">5-1 見積業務とは</a>
@@ -830,7 +755,7 @@ footer{text-align:center;padding:32px 48px;font-size:12px;color:var(--sub);borde
 <div class="main-content">
 
 <!-- HERO: 見積詳細 -->
-<section class="hero" id="q-intro" style="min-height:44vh;">
+<section class="hero" id="q-intro" style="min-height:36vh;">
   <div class="hero-bg"></div><div class="hero-grid"></div>
   <div class="hero-inner">
     <span class="eyebrow">Chapter 5 — Quotation Detail</span>
@@ -1340,10 +1265,27 @@ footer{text-align:center;padding:32px 48px;font-size:12px;color:var(--sub);borde
 <script>
 // アンカージャンプ：tabbarの高さ(52px)分オフセット
 function jumpTo(id) {
+  // 非表示タブのセクションに飛ぶ場合はタブを切り替えてからジャンプ
   const el = document.getElementById(id);
   if (!el) return;
-  const top = el.getBoundingClientRect().top + window.pageYOffset - 56;
-  window.scrollTo({ top: top, behavior: 'smooth' });
+  const panel = el.closest('.tab-panel');
+  if (panel && !panel.classList.contains('active')) {
+    // どのタブか判定して先にアクティブ化
+    const tabId = panel.id.replace('panel-', '');
+    switchTab(tabId);
+    // DOM更新後にスクロール
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => scrollToEl(id));
+    });
+  } else {
+    scrollToEl(id);
+  }
+}
+function scrollToEl(id) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  const top = el.getBoundingClientRect().top + window.pageYOffset - 64;
+  window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
 }
 function toggleMobMenu(id) {
   const btn = document.getElementById('mob-btn-' + id);
@@ -1366,32 +1308,29 @@ function switchTab(tab) {
   });
   document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
   document.getElementById('panel-' + tab).classList.add('active');
-  // タブ切替時はスクロール位置をリセットしない
+  window.scrollTo({ top: 0 });
 }
 
 // Intersection Observer: セクションがビューに入ったらサイドバーをハイライト
-const obs = new IntersectionObserver(entries => {
+// IntersectionObserver: セクション表示時にサイドバーをハイライト
+const revealObs = new IntersectionObserver(entries => {
   entries.forEach(e => {
-    if (e.isIntersecting) {
-      e.target.classList.add('visible');
-      // サイドバーリンクのアクティブ状態
-      const id = e.target.id;
-      if (!id) return;
-      document.querySelectorAll('.sidebar a').forEach(a => {
-        const href = a.getAttribute('href');
-        if (href === '#' + id) {
-          a.classList.add('active');
-          // サイドバー内でスクロールして見えるようにする
-          a.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
-        } else {
-          a.classList.remove('active');
-        }
-      });
-    }
+    if (!e.isIntersecting) return;
+    e.target.classList.add('visible');
+    const id = e.target.id;
+    if (!id) return;
+    document.querySelectorAll('.sidebar a, .mob-sidebar-drawer a').forEach(a => {
+      const oc = a.getAttribute('onclick') || '';
+      if (oc.includes(`jumpTo('${id}')`)) {
+        a.classList.add('active');
+      } else {
+        a.classList.remove('active');
+      }
+    });
   });
-}, { threshold: 0.15, rootMargin: '-52px 0px -40% 0px' });
+}, { threshold: 0.12, rootMargin: '-60px 0px -45% 0px' });
 
-document.querySelectorAll('.reveal, .hero, section[id]').forEach(el => obs.observe(el));
+document.querySelectorAll('section[id], .reveal').forEach(el => revealObs.observe(el));
 </script>
 </body>
 </html>
