@@ -27,16 +27,20 @@ body{background:var(--navy);color:var(--text);font-family:'Inter','Hiragino Kaku
 .tab-panel.active{display:block;}
 
 /* LAYOUT */
-.page-layout{display:grid;grid-template-columns:var(--sidebar-w) 1fr;min-height:100vh;align-items:start;}
+.page-layout{display:block;position:relative;}
 
 /* SIDEBAR */
 .sidebar{
-  width:var(--sidebar-w);flex-shrink:0;
-  position:sticky;top:52px;
+  width:var(--sidebar-w);
+  float:left;
+  position:sticky;
+  top:52px;
+  height:fit-content;
   max-height:calc(100vh - 52px);overflow-y:auto;
-  background:#1E2D3D;border-right:1px solid #2E4055;box-shadow:2px 0 8px rgba(0,0,0,.12);
+  background:#1E2D3D;border-right:1px solid #2E4055;
   padding:20px 0 40px;
   scrollbar-width:thin;scrollbar-color:#2E4055 transparent;
+  z-index:10;
 }
 .sidebar::-webkit-scrollbar{width:4px;}
 .sidebar::-webkit-scrollbar-track{background:transparent;}
@@ -48,17 +52,17 @@ body{background:var(--navy);color:var(--text);font-family:'Inter','Hiragino Kaku
 .sidebar a.active{color:#7EC8E3;border-left-color:#7EC8E3;background:rgba(126,200,227,.10);}
 
 /* MAIN CONTENT */
-.main-content{min-width:0;overflow:hidden;}
+.main-content{margin-left:var(--sidebar-w);min-width:0;}
 
 /* HERO */
 .hero{position:relative;min-height:72vh;display:flex;flex-direction:column;justify-content:center;padding:72px 48px 56px;overflow:hidden;}
-.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 55% 40%,#D8E8F2 0%,#EEF3F7 60%,var(--navy) 100%);}
+.hero-bg{position:absolute;inset:0;background:linear-gradient(135deg,#E2EEF6 0%,#F2F5F8 100%);}
 .hero-grid{position:absolute;inset:0;opacity:.06;background-image:linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px);background-size:48px 48px;}
 .hero-inner{position:relative;max-width:720px;width:100%;margin:0 auto;}
 .eyebrow{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--amber);border:1px solid var(--amber);padding:4px 12px;border-radius:2px;margin-bottom:24px;}
-.hero h1{font-size:clamp(28px,4vw,48px);font-weight:800;line-height:1.2;margin-bottom:20px;letter-spacing:-.02em;}
-.hero h1 em{color:var(--amber);font-style:normal;}
-.hero-lead{font-size:14px;color:var(--muted);line-height:1.9;max-width:580px;}
+.hero h1{font-size:clamp(28px,4vw,48px);font-weight:800;line-height:1.2;margin-bottom:20px;letter-spacing:-.02em;color:var(--text);}
+.hero h1 em{color:#2563EB;font-style:normal;}
+.hero-lead{font-size:15px;color:var(--muted);line-height:1.9;max-width:580px;}
 .hero-lead p{margin-bottom:10px;}
 .hero-lead p:last-child{margin-bottom:0;}
 
@@ -68,7 +72,7 @@ body{background:var(--navy);color:var(--text);font-family:'Inter','Hiragino Kaku
 .sec-label{font-size:10px;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:var(--amber);margin-bottom:10px;opacity:.85;}
 .sec-title{font-size:clamp(22px,3vw,30px);font-weight:800;line-height:1.25;margin-bottom:24px;letter-spacing:-.01em;color:var(--text);}
 .sec-sub{font-size:14px;font-weight:700;color:var(--amber);margin:36px 0 12px;border-left:3px solid var(--amber);padding-left:12px;}
-.sec-body{color:var(--muted);font-size:15px;line-height:2.0;margin-bottom:24px;}
+.sec-body{color:#506070;font-size:15px;line-height:2.0;margin-bottom:24px;}
 .sec-body p{margin-bottom:16px;}
 .sec-body p:last-child{margin-bottom:0;}
 .sec-body strong{color:#4A7FA5;font-weight:600;}
@@ -104,7 +108,7 @@ tr:hover td{background:#EEF5FB;}
 
 /* CALLOUT */
 .callout{background:#EFF6FF;border:1px solid #C8DCF0;border-radius:6px;padding:20px 24px;margin:20px 0;}
-.callout p{font-size:15px;color:var(--muted);line-height:1.95;margin-bottom:12px;}
+.callout p{font-size:15px;color:#506070;line-height:1.95;margin-bottom:12px;}
 .callout p:last-child{margin-bottom:0;}
 .callout strong{color:var(--text);}
 
@@ -129,7 +133,7 @@ tr:hover td{background:#EEF5FB;}
 .ba-card.after .ba-list li::before{content:'✓';color:var(--green);flex-shrink:0;}
 
 /* REVEAL */
-.reveal{opacity:0;transform:translateY(16px);transition:opacity .5s ease,transform .5s ease;}
+.reveal{opacity:1;transform:none;}
 .reveal.visible{opacity:1;transform:none;}
 
 /* MOBILE MENU */
@@ -156,7 +160,8 @@ footer{text-align:center;padding:32px 48px;font-size:12px;color:var(--sub);borde
 @media(max-width:640px){
   .sidebar{display:none;}
   .mob-menu-btn{display:block;}
-  .page-layout{display:block;grid-template-columns:1fr;}
+  .page-layout{display:block;}
+  .main-content{margin-left:0;}
   .main-content{width:100%;}
   .section{padding:36px 16px;}
   .hero{padding:44px 16px 32px;}
@@ -648,7 +653,7 @@ footer{text-align:center;padding:32px 48px;font-size:12px;color:var(--sub);borde
 </section>
 
 <!-- ════ 12. まとめ ════ -->
-<section class="section reveal" id="summary">
+<section class="section" id="summary">
   <div class="sec-label">12 — Summary</div>
   <h2 class="sec-title">まとめ</h2>
   <div class="sec-body">
@@ -1247,7 +1252,7 @@ footer{text-align:center;padding:32px 48px;font-size:12px;color:var(--sub);borde
 </section>
 
 <!-- 5-20 課題 -->
-<section class="section reveal" id="q-issues">
+<section class="section" id="q-issues">
   <div class="sec-label">5-20 — Issues</div>
   <h2 class="sec-title">見積業務の課題</h2>
   <div class="card-grid">
@@ -1277,9 +1282,8 @@ function jumpTo(id) {
     const tabId = panel.id.replace('panel-', '');
     switchTab(tabId);
     // DOM更新後にスクロール
-    requestAnimationFrame(() => {
-      requestAnimationFrame(() => scrollToEl(id));
-    });
+    // display:none→block後のレイアウト確定を待ってからスクロール
+    setTimeout(() => scrollToEl(id), 80);
   } else {
     scrollToEl(id);
   }
@@ -1287,8 +1291,11 @@ function jumpTo(id) {
 function scrollToEl(id) {
   const el = document.getElementById(id);
   if (!el) return;
-  const top = el.getBoundingClientRect().top + window.pageYOffset - 64;
-  window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
+  const OFFSET = 68; // tabbar52px + 余白16px
+  // html/body どちらがスクロールしていても対応
+  const scrollRoot = document.scrollingElement || document.documentElement;
+  const rect = el.getBoundingClientRect();
+  scrollRoot.scrollTo({ top: Math.max(0, scrollRoot.scrollTop + rect.top - OFFSET), behavior: 'smooth' });
 }
 function toggleMobMenu(id) {
   const btn = document.getElementById('mob-btn-' + id);
@@ -1331,7 +1338,7 @@ const revealObs = new IntersectionObserver(entries => {
       }
     });
   });
-}, { threshold: 0.12, rootMargin: '-60px 0px -45% 0px' });
+}, { threshold: 0.05, rootMargin: '-52px 0px -10% 0px' });
 
 document.querySelectorAll('section[id], .reveal').forEach(el => revealObs.observe(el));
 </script>
